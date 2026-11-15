@@ -1,0 +1,2332 @@
+{
+ "AboutProfileByScreenNameQuery": {
+  "operation": "AboutProfileByScreenNameQuery",
+  "queryId": "62UN8S7bK4WOniJg24qAGQ",
+  "kind": "registered",
+  "key": "about_profile_by_screen_name_query",
+  "hasDoc": false
+ },
+ "AboutProfileQuery": {
+  "operation": "AboutProfileQuery",
+  "queryId": "u0L8vZ3R4Qa9TK6i9AlD8Q",
+  "kind": "registered",
+  "key": "about_profile_query",
+  "hasDoc": false
+ },
+ "GetUsernameAvailabilityAndSuggestions": {
+  "operation": "GetUsernameAvailabilityAndSuggestions",
+  "queryId": "zmlkjCoEDEMzTCuLlOKPAA",
+  "kind": "registered",
+  "key": "get_username_availability_and_suggestions",
+  "hasDoc": false
+ },
+ "ParodyCommentaryFanLabelSettingsGet": {
+  "operation": "ParodyCommentaryFanLabelSettingsGet",
+  "queryId": "6i5XbW86EwI3LNXabguB-A",
+  "kind": "registered",
+  "key": "parody_commentary_fan_label_settings_get",
+  "hasDoc": false
+ },
+ "TipjarUpdatePaga": {
+  "operation": "TipjarUpdatePaga",
+  "queryId": "Khq-pQ-1FBv1a7EtdmUTWA",
+  "kind": "registered",
+  "key": "tipjar_update_paga",
+  "hasDoc": false
+ },
+ "TipjarUpdatePatreon": {
+  "operation": "TipjarUpdatePatreon",
+  "queryId": "ycZIphvbJx3oVA0Uzu7o0Q",
+  "kind": "registered",
+  "key": "tipjar_update_patreon",
+  "hasDoc": false
+ },
+ "TipjarUpdatePaypal": {
+  "operation": "TipjarUpdatePaypal",
+  "queryId": "aerFfP78IoulpfVLEogsPw",
+  "kind": "registered",
+  "key": "tipjar_update_paypal",
+  "hasDoc": false
+ },
+ "TipjarUpdatePaytm": {
+  "operation": "TipjarUpdatePaytm",
+  "queryId": "P9V1PMwL5UrlFq6naU7Q0A",
+  "kind": "registered",
+  "key": "tipjar_update_paytm",
+  "hasDoc": false
+ },
+ "TipjarUpdatePicpay": {
+  "operation": "TipjarUpdatePicpay",
+  "queryId": "GZJt2p-xXT78gPUWvt8tJw",
+  "kind": "registered",
+  "key": "tipjar_update_picpay",
+  "hasDoc": false
+ },
+ "TipjarUpdateStrike": {
+  "operation": "TipjarUpdateStrike",
+  "queryId": "aZis6gjbxCm6QH3TlALNPw",
+  "kind": "registered",
+  "key": "tipjar_update_strike",
+  "hasDoc": false
+ },
+ "TipjarUpdateVenmo": {
+  "operation": "TipjarUpdateVenmo",
+  "queryId": "GyB44tX86TuNkMlY8b8RZw",
+  "kind": "registered",
+  "key": "tipjar_update_venmo",
+  "hasDoc": false
+ },
+ "TopArticlesTimeline": {
+  "operation": "TopArticlesTimeline",
+  "queryId": "ncR-SqV6cggFi7Ui1KnnMQ",
+  "kind": "registered",
+  "key": "top_articles_timeline",
+  "hasDoc": false
+ },
+ "TopicPageByRestIdNoBodyQuery": {
+  "operation": "TopicPageByRestIdNoBodyQuery",
+  "queryId": "oxoWpwFeEGqV9mffKHxKsg",
+  "kind": "registered",
+  "key": "topic_page_by_rest_id_no_body_query",
+  "hasDoc": false
+ },
+ "TranslateTweetQuery": {
+  "operation": "TranslateTweetQuery",
+  "queryId": "WwIm9qup5zy3ttf7R4Apxw",
+  "kind": "registered",
+  "key": "translate_tweet_query",
+  "hasDoc": false
+ },
+ "TrustedFriendsListMemberAdd": {
+  "operation": "TrustedFriendsListMemberAdd",
+  "queryId": "Tp2OYiWFbwEf1YcRbXSI7A",
+  "kind": "registered",
+  "key": "trusted_friends_list_member_add",
+  "hasDoc": false
+ },
+ "TrustedFriendsListMemberRemove": {
+  "operation": "TrustedFriendsListMemberRemove",
+  "queryId": "Ixx2P5eU4RYM7qUHGHujNw",
+  "kind": "registered",
+  "key": "trusted_friends_list_member_remove",
+  "hasDoc": false
+ },
+ "TrustedFriendsListQueryById": {
+  "operation": "TrustedFriendsListQueryById",
+  "queryId": "-FGFGdlNiYhqsFQ5btxmuA",
+  "kind": "registered",
+  "key": "trusted_friends_list_query_by_id",
+  "hasDoc": false
+ },
+ "TrustedFriendsListQueryRecommendedMembersByRestId": {
+  "operation": "TrustedFriendsListQueryRecommendedMembersByRestId",
+  "queryId": "MOB-Il1nCZ3Q6RXqLJx1Kw",
+  "kind": "registered",
+  "key": "trusted_friends_list_query_recommended_members_by_rest_id",
+  "hasDoc": false
+ },
+ "TweetConversationControlDelete": {
+  "operation": "TweetConversationControlDelete",
+  "queryId": "IkdET3_iUY5aPtz7Xn-8rA",
+  "kind": "registered",
+  "key": "tweet_conversation_control_delete",
+  "hasDoc": false
+ },
+ "TweetConversationControlPut": {
+  "operation": "TweetConversationControlPut",
+  "queryId": "DL0R5KGQ3SvA-ziP-MQl6A",
+  "kind": "registered",
+  "key": "tweet_conversation_control_put",
+  "hasDoc": false
+ },
+ "TweetModerateUpdate": {
+  "operation": "TweetModerateUpdate",
+  "queryId": "slVYoY_EHR7YDRpto6hlQg",
+  "kind": "registered",
+  "key": "tweet_moderate_update",
+  "hasDoc": false
+ },
+ "UnfavoriteTweet": {
+  "operation": "UnfavoriteTweet",
+  "queryId": "ZYKSe-w7KEslx3JhSIk5LA",
+  "kind": "registered",
+  "key": "unfavorite_tweet",
+  "hasDoc": false
+ },
+ "UnmentionUser": {
+  "operation": "UnmentionUser",
+  "queryId": "OliKoDxqcnL653lUPIeruw",
+  "kind": "registered",
+  "key": "unmention_user",
+  "hasDoc": false
+ },
+ "UnpinTimeline": {
+  "operation": "UnpinTimeline",
+  "queryId": "gzhKuERhKEsooXFBcLDb8A",
+  "kind": "interface",
+  "key": "unpin_timeline",
+  "hasDoc": true,
+  "conflict": [
+   "gzhKuERhKEsooXFBcLDb8A",
+   "MLmh-RlCMJS2xK_KG_28FA"
+  ],
+  "queryLength": 4101
+ },
+ "UnpinTweet": {
+  "operation": "UnpinTweet",
+  "queryId": "TtGd5umk9Cd_nMDQG7JBSw",
+  "kind": "registered",
+  "key": "unpin_tweet",
+  "hasDoc": false
+ },
+ "UserAffiliatedUsers": {
+  "operation": "UserAffiliatedUsers",
+  "queryId": "fluvXY3yJTKutMsYW_kEtQ",
+  "kind": "registered",
+  "key": "user_affiliated_users",
+  "hasDoc": false
+ },
+ "UserCommunityInviteMutation": {
+  "operation": "UserCommunityInviteMutation",
+  "queryId": "DSbmt8ctjvcG7EqJKqQ25Q",
+  "kind": "registered",
+  "key": "user_community_invite_mutation",
+  "hasDoc": false
+ },
+ "UserCreateAboutModuleFromVenue": {
+  "operation": "UserCreateAboutModuleFromVenue",
+  "queryId": "_mseS6R1pjYdYMGNmub-bw",
+  "kind": "registered",
+  "key": "user_create_about_module_from_venue",
+  "hasDoc": false
+ },
+ "UserCreateAppModule": {
+  "operation": "UserCreateAppModule",
+  "queryId": "Ob3WXKB4F1cjr-zHJnHW1w",
+  "kind": "registered",
+  "key": "user_create_app_module",
+  "hasDoc": false
+ },
+ "UserCreateCommunitiesModuleMutation": {
+  "operation": "UserCreateCommunitiesModuleMutation",
+  "queryId": "fSpw5Izp8EtEhIbrrEel1w",
+  "kind": "registered",
+  "key": "user_create_communities_module_mutation",
+  "hasDoc": false
+ },
+ "UserDeleteAboutModuleAndVenue": {
+  "operation": "UserDeleteAboutModuleAndVenue",
+  "queryId": "75bdkdTykLMX9nXD52uoHw",
+  "kind": "registered",
+  "key": "user_delete_about_module_and_venue",
+  "hasDoc": false
+ },
+ "UserDeleteAppModule": {
+  "operation": "UserDeleteAppModule",
+  "queryId": "E7LrRvILgHl_z9-xGY9kJw",
+  "kind": "registered",
+  "key": "user_delete_app_module",
+  "hasDoc": false
+ },
+ "UserDeleteCommunitiesModuleMutation": {
+  "operation": "UserDeleteCommunitiesModuleMutation",
+  "queryId": "oidlSSrrOQf2yVA8KAR2bw",
+  "kind": "registered",
+  "key": "user_delete_communities_module_mutation",
+  "hasDoc": false
+ },
+ "UserDmNsfwFilterSettingsUpdate": {
+  "operation": "UserDmNsfwFilterSettingsUpdate",
+  "queryId": "Zx2AzSs6KfU15AkXxpa0YQ",
+  "kind": "registered",
+  "key": "user_dm_nsfw_filter_settings_update",
+  "hasDoc": false
+ },
+ "UserEditableProfileModulesQuery": {
+  "operation": "UserEditableProfileModulesQuery",
+  "queryId": "VEob2BUpEy0R7YCS0EftSA",
+  "kind": "registered",
+  "key": "user_editable_profile_modules_query",
+  "hasDoc": false
+ },
+ "UserEmailNotificationsSettingsUpdate": {
+  "operation": "UserEmailNotificationsSettingsUpdate",
+  "queryId": "G_1gf5jOsfFLCIYu0bPiig",
+  "kind": "registered",
+  "key": "user_email_notifications_settings_update",
+  "hasDoc": false
+ },
+ "UserFriendsFollowingTimelineQuery": {
+  "operation": "UserFriendsFollowingTimelineQuery",
+  "queryId": "I4VgTq0DHf01VqcR4D8-Bg",
+  "kind": "registered",
+  "key": "user_friends_following_timeline_query",
+  "hasDoc": false
+ },
+ "UserIncomingFriendshipsTimelineQuery": {
+  "operation": "UserIncomingFriendshipsTimelineQuery",
+  "queryId": "bGaAXthJZhzdN2NnfYIvUw",
+  "kind": "registered",
+  "key": "user_incoming_friendships_timeline_query",
+  "hasDoc": false
+ },
+ "UserListMute": {
+  "operation": "UserListMute",
+  "queryId": "706Hnj2UKNqAJOZJXT0ZqQ",
+  "kind": "registered",
+  "key": "user_list_mute",
+  "hasDoc": false
+ },
+ "UserListSubscribe": {
+  "operation": "UserListSubscribe",
+  "queryId": "uKER2Ur0iQTVXkqUEUg-Kg",
+  "kind": "registered",
+  "key": "user_list_subscribe",
+  "hasDoc": false
+ },
+ "UserListUnmute": {
+  "operation": "UserListUnmute",
+  "queryId": "bS5Ku2wVQGyKU2rhr_B8fg",
+  "kind": "registered",
+  "key": "user_list_unmute",
+  "hasDoc": false
+ },
+ "UserListUnsubscribe": {
+  "operation": "UserListUnsubscribe",
+  "queryId": "MFR5-RSk4A5F6zDoJ-FDEw",
+  "kind": "registered",
+  "key": "user_list_unsubscribe",
+  "hasDoc": false
+ },
+ "UserPreferencesGet": {
+  "operation": "UserPreferencesGet",
+  "queryId": "UIjeD7AZKF-P4hfT2EONQg",
+  "kind": "registered",
+  "key": "user_preferences_get",
+  "hasDoc": false
+ },
+ "UserPreferencesGrokDeleteData": {
+  "operation": "UserPreferencesGrokDeleteData",
+  "queryId": "28CM05OHbQfDWO4b1n90sg",
+  "kind": "registered",
+  "key": "user_preferences_grok_delete_data",
+  "hasDoc": false
+ },
+ "UserPreferencesUpdateAllowForYouRecommendations": {
+  "operation": "UserPreferencesUpdateAllowForYouRecommendations",
+  "queryId": "uJ0iXR1R-jxu9CzKXXQjEQ",
+  "kind": "registered",
+  "key": "user_preferences_update_allow_for_you_recommendations",
+  "hasDoc": false
+ },
+ "UserPreferencesUpdateAllowGamblingAds": {
+  "operation": "UserPreferencesUpdateAllowGamblingAds",
+  "queryId": "yx6aK4P8kSffBXm-dbq70A",
+  "kind": "registered",
+  "key": "user_preferences_update_allow_gambling_ads",
+  "hasDoc": false
+ },
+ "UserPreferencesUpdateAllowVideoDownloads": {
+  "operation": "UserPreferencesUpdateAllowVideoDownloads",
+  "queryId": "srtPWSpugzh1H1YdXtuofg",
+  "kind": "registered",
+  "key": "user_preferences_update_allow_video_downloads",
+  "hasDoc": false
+ },
+ "UserPreferencesUpdateGrokDataSharing": {
+  "operation": "UserPreferencesUpdateGrokDataSharing",
+  "queryId": "NMSYSeV5KQobnorDwPFvtQ",
+  "kind": "registered",
+  "key": "user_preferences_update_grok_data_sharing",
+  "hasDoc": false
+ },
+ "UserPreferencesUpdateGrokMemory": {
+  "operation": "UserPreferencesUpdateGrokMemory",
+  "queryId": "9D0ZHGY-DNs7-SBWCiWJNQ",
+  "kind": "registered",
+  "key": "user_preferences_update_grok_memory",
+  "hasDoc": false
+ },
+ "UserPreferencesUpdateGrokPersonalization": {
+  "operation": "UserPreferencesUpdateGrokPersonalization",
+  "queryId": "d8Dsepig7V9mmKuIY2g21Q",
+  "kind": "registered",
+  "key": "user_preferences_update_grok_personalization",
+  "hasDoc": false
+ },
+ "UserPreferencesUpdateHideSubscriptions": {
+  "operation": "UserPreferencesUpdateHideSubscriptions",
+  "queryId": "ltjtmRyBlAwQosK-3NdjBQ",
+  "kind": "registered",
+  "key": "user_preferences_update_hide_subscriptions",
+  "hasDoc": false
+ },
+ "UserPreferencesUpdateInferredLocationResolutionPreference": {
+  "operation": "UserPreferencesUpdateInferredLocationResolutionPreference",
+  "queryId": "ZIiHWIz5tOMpZe-M958Muw",
+  "kind": "registered",
+  "key": "user_preferences_update_parody_commentary_fan_profile_label",
+  "hasDoc": false
+ },
+ "UserProfileArticlesTimelineQuery": {
+  "operation": "UserProfileArticlesTimelineQuery",
+  "queryId": "VUJhHsUKgD7kxd0pTb571w",
+  "kind": "interface",
+  "key": "user_profile_articles_timeline_query",
+  "hasDoc": true,
+  "conflict": [
+   "VUJhHsUKgD7kxd0pTb571w",
+   "Y3__rhoifiFJCfDWRQLgYA"
+  ],
+  "queryLength": 34973
+ },
+ "UserResultByIdQuery": {
+  "operation": "UserResultByIdQuery",
+  "queryId": "-DAaa9jPxPswYeI2fZ9rug",
+  "kind": "registered",
+  "key": "user_result_by_id_query",
+  "hasDoc": false
+ },
+ "UserResultByScreenNameQuery": {
+  "operation": "UserResultByScreenNameQuery",
+  "queryId": "-ZzAG_Bckx16LMbEvHC3lg",
+  "kind": "registered",
+  "key": "user_result_by_screen_name_query",
+  "hasDoc": false
+ },
+ "UserSharingListeningDataWithFollowersSettingsUpdate": {
+  "operation": "UserSharingListeningDataWithFollowersSettingsUpdate",
+  "queryId": "znFz69bnfZ3GA86FMkAM8w",
+  "kind": "registered",
+  "key": "user_sharing_listening_data_with_followers_settings_update",
+  "hasDoc": false
+ },
+ "UserSuperFollowersTimelineQuery": {
+  "operation": "UserSuperFollowersTimelineQuery",
+  "queryId": "DX9jUPO9exxy0aqBIHVvug",
+  "kind": "registered",
+  "key": "user_super_followers_timeline_query",
+  "hasDoc": false
+ },
+ "UserUpdateAboutModuleFromVenue": {
+  "operation": "UserUpdateAboutModuleFromVenue",
+  "queryId": "hhb6N8z6qwrqxrRCzN3yyA",
+  "kind": "registered",
+  "key": "user_update_about_module_from_venue",
+  "hasDoc": false
+ },
+ "UserUpdateAppModule": {
+  "operation": "UserUpdateAppModule",
+  "queryId": "WnB2cARj2tJGXl9D5ZVnPg",
+  "kind": "registered",
+  "key": "user_update_app_module",
+  "hasDoc": false
+ },
+ "UserUpdateCommunitiesModuleMutation": {
+  "operation": "UserUpdateCommunitiesModuleMutation",
+  "queryId": "3jh0bCSsMLKkAP3Xi5Uerg",
+  "kind": "registered",
+  "key": "user_update_communities_module_mutation",
+  "hasDoc": false
+ },
+ "UserUpdateProfessionalCategoryDisplay": {
+  "operation": "UserUpdateProfessionalCategoryDisplay",
+  "queryId": "Wxve9Btx3tHIwkAdF1vZ0A",
+  "kind": "registered",
+  "key": "user_update_professional_category_display",
+  "hasDoc": false
+ },
+ "UserVitFollowersTimelineQuery": {
+  "operation": "UserVitFollowersTimelineQuery",
+  "queryId": "D6gamO3p6hNhYPacLmHKWA",
+  "kind": "registered",
+  "key": "user_vit_followers_timeline_query",
+  "hasDoc": false
+ },
+ "UserWithProfileHighlightsTimelineQuery": {
+  "operation": "UserWithProfileHighlightsTimelineQuery",
+  "queryId": "O4NgjliT3TF-GTEra4Nr3g",
+  "kind": "registered",
+  "key": "user_with_profile_highlights_timeline_query",
+  "hasDoc": false
+ },
+ "UserWithProfileReplyDeviceFollow": {
+  "operation": "UserWithProfileReplyDeviceFollow",
+  "queryId": "0iCEMO6QzSVi3CUZjvuiBA",
+  "kind": "registered",
+  "key": "user_with_profile_reply_device_follow",
+  "hasDoc": false
+ },
+ "UserWithProfileReplyDeviceUnfollow": {
+  "operation": "UserWithProfileReplyDeviceUnfollow",
+  "queryId": "qQrGirsSX8f-CVBT8-Ue3Q",
+  "kind": "registered",
+  "key": "user_with_profile_reply_device_unfollow",
+  "hasDoc": false
+ },
+ "UserWithProfileSuperFollowTweetsQuery": {
+  "operation": "UserWithProfileSuperFollowTweetsQuery",
+  "queryId": "1viCRDLHXmw-rPwwZeS3eg",
+  "kind": "registered",
+  "key": "user_with_profile_super_follow_tweets_query",
+  "hasDoc": false
+ },
+ "UserWithProfileTweetsAndRepliesQueryV2": {
+  "operation": "UserWithProfileTweetsAndRepliesQueryV2",
+  "queryId": "u66gepBF-B5E7YMbvs12jA",
+  "kind": "registered",
+  "key": "user_with_profile_tweets_and_replies_query_v2",
+  "hasDoc": false
+ },
+ "UserWithProfileTweetsQueryV2": {
+  "operation": "UserWithProfileTweetsQueryV2",
+  "queryId": "B2UkbYOGwyE4DX_2WNIySw",
+  "kind": "interface",
+  "key": "user_with_profile_tweets_query_v2",
+  "hasDoc": true,
+  "conflict": [
+   "B2UkbYOGwyE4DX_2WNIySw",
+   "LE3eTyeqhBh2g-fX85O2eQ"
+  ],
+  "queryLength": 34963
+ },
+ "UserWithRitoActionedTweetsTimelineQuery": {
+  "operation": "UserWithRitoActionedTweetsTimelineQuery",
+  "queryId": "WG9NCVqjVUQkLabIgEWzMQ",
+  "kind": "registered",
+  "key": "user_with_rito_actioned_tweets_timeline_query",
+  "hasDoc": false
+ },
+ "UserWithRitoFlaggedTweetsTimelineQuery": {
+  "operation": "UserWithRitoFlaggedTweetsTimelineQuery",
+  "queryId": "B7HIMpjzPGE4dsqDy5N5LQ",
+  "kind": "registered",
+  "key": "user_with_rito_flagged_tweets_timeline_query",
+  "hasDoc": false
+ },
+ "ViewerBlockingTimelineQuery": {
+  "operation": "ViewerBlockingTimelineQuery",
+  "queryId": "MQhlNOS3gxEAUAtzgAWz7w",
+  "kind": "registered",
+  "key": "viewer_blocking_timeline_query",
+  "hasDoc": false
+ },
+ "ViewerChannelsDiscoveryTimelineQuery": {
+  "operation": "ViewerChannelsDiscoveryTimelineQuery",
+  "queryId": "PG9fEJDJg1_dy7W3F5yk3A",
+  "kind": "registered",
+  "key": "viewer_channels_discovery_timeline_query",
+  "hasDoc": false
+ },
+ "ViewerFlaggedAccountsTimelineQuery": {
+  "operation": "ViewerFlaggedAccountsTimelineQuery",
+  "queryId": "4PCekDmhLepadVT9-HdELQ",
+  "kind": "registered",
+  "key": "viewer_flagged_accounts_timeline_query",
+  "hasDoc": false
+ },
+ "ViewerImportedBlockingTimelineQuery": {
+  "operation": "ViewerImportedBlockingTimelineQuery",
+  "queryId": "myQFy3Y8lbe9hlPUQHta1w",
+  "kind": "registered",
+  "key": "viewer_imported_blocking_timeline_query",
+  "hasDoc": false
+ },
+ "ViewerListManagementTimeline": {
+  "operation": "ViewerListManagementTimeline",
+  "queryId": "xJ_-IOX85VVK5-DwsfoZ4A",
+  "kind": "registered",
+  "key": "viewer_list_management_timeline",
+  "hasDoc": false
+ },
+ "ViewerSmartBlockingTimelineQuery": {
+  "operation": "ViewerSmartBlockingTimelineQuery",
+  "queryId": "Ui6pSpwJEqjT82QjYZ7yuQ",
+  "kind": "registered",
+  "key": "viewer_smart_blocking_timeline_query",
+  "hasDoc": false
+ },
+ "ViewerUserQuery": {
+  "operation": "ViewerUserQuery",
+  "queryId": "_ccRJ_8nuJ1-RzBDtk-9Xg",
+  "kind": "registered",
+  "key": "viewer_user_query",
+  "hasDoc": false
+ },
+ "AudiospaceBrowseSpaceTopicsQuery": {
+  "operation": "AudiospaceBrowseSpaceTopicsQuery",
+  "queryId": "IZ1drq74xph2Gym7gGgtRw",
+  "kind": "registered",
+  "key": "audiospace_browse_space_topics_query",
+  "hasDoc": false
+ },
+ "AudiospaceByRestId": {
+  "operation": "AudiospaceByRestId",
+  "queryId": "yBMgJyfQwePA6c1Eml6Ccg",
+  "kind": "registered",
+  "key": "audiospace_by_rest_id",
+  "hasDoc": false
+ },
+ "AudiospaceIsSubscribedQuery": {
+  "operation": "AudiospaceIsSubscribedQuery",
+  "queryId": "g1mB1D5y3z_NkFsN-FwZdA",
+  "kind": "registered",
+  "key": "audiospace_is_subscribed_query",
+  "hasDoc": false
+ },
+ "AudiospaceRecommendedTopicsQuery": {
+  "operation": "AudiospaceRecommendedTopicsQuery",
+  "queryId": "olBPzZqwVkD-JeWridv1Ag",
+  "kind": "registered",
+  "key": "audiospace_recommended_topics_query",
+  "hasDoc": false
+ },
+ "BonusFollowTimeline": {
+  "operation": "BonusFollowTimeline",
+  "queryId": "Mm6llrZ8l92Zc4UlWqczag",
+  "kind": "registered",
+  "key": "bonus_follow_timeline",
+  "hasDoc": false
+ },
+ "BookmarkAdd": {
+  "operation": "BookmarkAdd",
+  "queryId": "-V21wukAaCGXHbUZPZ2wGw",
+  "kind": "registered",
+  "key": "bookmark_add",
+  "hasDoc": false
+ },
+ "BookmarkCollectionTweetDelete": {
+  "operation": "BookmarkCollectionTweetDelete",
+  "queryId": "8lNl-w60Xiy3Vr_M93MwCw",
+  "kind": "registered",
+  "key": "bookmark_collection_tweet_delete",
+  "hasDoc": false
+ },
+ "BookmarkDelete": {
+  "operation": "BookmarkDelete",
+  "queryId": "G-V_AGDp-QKivnyTUCtTjA",
+  "kind": "registered",
+  "key": "bookmark_delete",
+  "hasDoc": false
+ },
+ "BookmarkTimelineV2": {
+  "operation": "BookmarkTimelineV2",
+  "queryId": "rJ9ld5zrgDFL0HkGKuqbOA",
+  "kind": "registered",
+  "key": "bookmark_timeline_v2",
+  "hasDoc": false
+ },
+ "BroadcastShow": {
+  "operation": "BroadcastShow",
+  "queryId": "1q22bHXXPwQ6WhQ0yJFTgg",
+  "kind": "registered",
+  "key": "broadcast_show",
+  "hasDoc": false
+ },
+ "CarouselImmersiveVideoExploreMixerTimeline": {
+  "operation": "CarouselImmersiveVideoExploreMixerTimeline",
+  "queryId": "WAjmL_GQ-ahMT7mGNbhCkw",
+  "kind": "registered",
+  "key": "carousel_immersive_video_explore_mixer_timeline",
+  "hasDoc": false
+ },
+ "CommerceProductResultByKeyAndMerchant": {
+  "operation": "CommerceProductResultByKeyAndMerchant",
+  "queryId": "MsYsJKz9_k2dmWpyyU-Xww",
+  "kind": "registered",
+  "key": "commerce_product_result_by_key_and_merchant",
+  "hasDoc": false
+ },
+ "CommerceProductSetDropByRestId": {
+  "operation": "CommerceProductSetDropByRestId",
+  "queryId": "S1AswHQxrGM8nC4sQZDUDA",
+  "kind": "registered",
+  "key": "commerce_product_set_drop_by_rest_id",
+  "hasDoc": false
+ },
+ "CommerceUserResultByIdQuery": {
+  "operation": "CommerceUserResultByIdQuery",
+  "queryId": "nEId-a30usjl43GF9QGRiA",
+  "kind": "registered",
+  "key": "commerce_user_result_by_id_query",
+  "hasDoc": false
+ },
+ "CommunitiesEligibleForProfileSpotlightSlice": {
+  "operation": "CommunitiesEligibleForProfileSpotlightSlice",
+  "queryId": "9iNfj_Itz-Sh-4wqKvwPkw",
+  "kind": "registered",
+  "key": "communities_eligible_for_profile_spotlight_slice",
+  "hasDoc": false
+ },
+ "CommunitiesExploreTimelineQuery": {
+  "operation": "CommunitiesExploreTimelineQuery",
+  "queryId": "Kzmtz-qrV-gWn1OowsTrkg",
+  "kind": "registered",
+  "key": "communities_explore_timeline_query",
+  "hasDoc": false
+ },
+ "CommunitiesInviteTypeaheadQuery": {
+  "operation": "CommunitiesInviteTypeaheadQuery",
+  "queryId": "cGaVxuY9j1EkBnLbFHFkIQ",
+  "kind": "registered",
+  "key": "communities_invite_typeahead_query",
+  "hasDoc": false
+ },
+ "CommunitiesMembersModeratorsQuery": {
+  "operation": "CommunitiesMembersModeratorsQuery",
+  "queryId": "UjnoK9Cn2ijSxXFN53EAew",
+  "kind": "registered",
+  "key": "communities_members_moderators_query",
+  "hasDoc": false
+ },
+ "CommunitiesMyQuery": {
+  "operation": "CommunitiesMyQuery",
+  "queryId": "9vLFRLBZf1gAXPWNNXK0bA",
+  "kind": "registered",
+  "key": "communities_my_query",
+  "hasDoc": false
+ },
+ "CommunityCreateRuleMutation": {
+  "operation": "CommunityCreateRuleMutation",
+  "queryId": "xOCFa41vTCDsYqqd__NxOg",
+  "kind": "registered",
+  "key": "community_create_rule_mutation",
+  "hasDoc": false
+ },
+ "CommunityDeleteCustomBannerMediaMutation": {
+  "operation": "CommunityDeleteCustomBannerMediaMutation",
+  "queryId": "VWY_ZzVIHSHR9uH_z57TpA",
+  "kind": "registered",
+  "key": "community_delete_custom_banner_media_mutation",
+  "hasDoc": false
+ },
+ "CommunityDescriptionPutMutation": {
+  "operation": "CommunityDescriptionPutMutation",
+  "queryId": "QXzsLtkfLJGlhQfNoXDhyw",
+  "kind": "registered",
+  "key": "community_description_put_mutation",
+  "hasDoc": false
+ },
+ "CommunityDiscoveryTimelineQuery": {
+  "operation": "CommunityDiscoveryTimelineQuery",
+  "queryId": "VVZDlhiD2HW2rG5gQMHEyA",
+  "kind": "registered",
+  "key": "community_discovery_timeline_query",
+  "hasDoc": false
+ },
+ "CommunityHashtagSearchQuery": {
+  "operation": "CommunityHashtagSearchQuery",
+  "queryId": "zdU7yQ5zkqd4nx4pg2dwbg",
+  "kind": "interface",
+  "key": "community_hashtag_search_query",
+  "hasDoc": true,
+  "conflict": [
+   "zdU7yQ5zkqd4nx4pg2dwbg",
+   "kvVMalaq6akKtt5ZMngHCw"
+  ],
+  "queryLength": 35076
+ },
+ "CommunityInfoQuery": {
+  "operation": "CommunityInfoQuery",
+  "queryId": "bEHr0jP--kVelB1LdmsLvA",
+  "kind": "registered",
+  "key": "community_info_query",
+  "hasDoc": false
+ },
+ "CommunityJoinQuery": {
+  "operation": "CommunityJoinQuery",
+  "queryId": "rSwKIJyfLBlfpIfToNEOuA",
+  "kind": "registered",
+  "key": "community_join_query",
+  "hasDoc": false
+ },
+ "CommunityLeaveQuery": {
+  "operation": "CommunityLeaveQuery",
+  "queryId": "FiTgUFDLVIRbuAzOJx1KdQ",
+  "kind": "registered",
+  "key": "community_leave_query",
+  "hasDoc": false
+ },
+ "CommunityMediaTimelineQuery": {
+  "operation": "CommunityMediaTimelineQuery",
+  "queryId": "rROnU2LtaF__xVSssdA68A",
+  "kind": "interface",
+  "key": "community_media_timeline_query",
+  "hasDoc": true,
+  "conflict": [
+   "rROnU2LtaF__xVSssdA68A",
+   "Q9kUSQFkJ-dbzk9ppVvPGA"
+  ],
+  "queryLength": 35033
+ },
+ "CommunityMembershipSettingsPut": {
+  "operation": "CommunityMembershipSettingsPut",
+  "queryId": "xfHYqyoN3RJNujUUi1dq1Q",
+  "kind": "registered",
+  "key": "community_membership_settings_put",
+  "hasDoc": false
+ },
+ "CommunityModerationKeepTweetMutation": {
+  "operation": "CommunityModerationKeepTweetMutation",
+  "queryId": "k7C4ATBAOav_BMHaARnifw",
+  "kind": "registered",
+  "key": "community_moderation_keep_tweet_mutation",
+  "hasDoc": false
+ },
+ "CommunityModerationTweetCaseReportsSlice": {
+  "operation": "CommunityModerationTweetCaseReportsSlice",
+  "queryId": "BsmV5mNM90xhHEur02gcdQ",
+  "kind": "registered",
+  "key": "community_moderation_tweet_case_reports_slice",
+  "hasDoc": false
+ },
+ "CommunityModerationTweetCasesSlice": {
+  "operation": "CommunityModerationTweetCasesSlice",
+  "queryId": "gCE2Tbb9jVaeVlUAiyzvfQ",
+  "kind": "registered",
+  "key": "community_moderation_tweet_cases_slice",
+  "hasDoc": false
+ },
+ "CommunityModeratorApproveRequestRtj": {
+  "operation": "CommunityModeratorApproveRequestRtj",
+  "queryId": "kx20yeony6OEU-3Ywu2kJQ",
+  "kind": "registered",
+  "key": "community_moderator_approve_request_rtj",
+  "hasDoc": false
+ },
+ "CommunityModeratorDenyRequestRtj": {
+  "operation": "CommunityModeratorDenyRequestRtj",
+  "queryId": "EppyHLVkgrv7otVwQ1PllA",
+  "kind": "registered",
+  "key": "community_moderator_deny_request_rtj",
+  "hasDoc": false
+ },
+ "CommunityNotificationSettingsPut": {
+  "operation": "CommunityNotificationSettingsPut",
+  "queryId": "p63ohfUyKiuNkjoFNitdpw",
+  "kind": "registered",
+  "key": "community_notification_settings_put",
+  "hasDoc": false
+ },
+ "CommunityPutCustomBannerMediaMutation": {
+  "operation": "CommunityPutCustomBannerMediaMutation",
+  "queryId": "vyj86DZS6bHE_8ng7JK1oQ",
+  "kind": "registered",
+  "key": "community_put_custom_banner_media_mutation",
+  "hasDoc": false
+ },
+ "CommunityQuestionPutMutation": {
+  "operation": "CommunityQuestionPutMutation",
+  "queryId": "zdwUkzBoW_QDNZgUuyukfw",
+  "kind": "registered",
+  "key": "community_question_put_mutation",
+  "hasDoc": false
+ },
+ "CommunityRankedTimelineQuery": {
+  "operation": "CommunityRankedTimelineQuery",
+  "queryId": "IbzoC9dQCnsObZT2hux3Wg",
+  "kind": "registered",
+  "key": "community_ranked_timeline_query",
+  "hasDoc": false
+ },
+ "CommunityRemoveRuleMutation": {
+  "operation": "CommunityRemoveRuleMutation",
+  "queryId": "SWQAUTwDnKld8PmuI_qHqQ",
+  "kind": "registered",
+  "key": "community_remove_rule_mutation",
+  "hasDoc": false
+ },
+ "CommunityReorderRulesMutation": {
+  "operation": "CommunityReorderRulesMutation",
+  "queryId": "yYZYyj9qNpcp7fUA7qiWHw",
+  "kind": "registered",
+  "key": "community_reorder_rules_mutation",
+  "hasDoc": false
+ },
+ "CommunityTweetUnpinMutation": {
+  "operation": "CommunityTweetUnpinMutation",
+  "queryId": "TK-NHiG8XZeS3eb08BxVhw",
+  "kind": "registered",
+  "key": "community_tweet_unpin_mutation",
+  "hasDoc": false
+ },
+ "CommunityUpdateHashtagMutation": {
+  "operation": "CommunityUpdateHashtagMutation",
+  "queryId": "FwxmeuTYsnuCQq5MUxpj2g",
+  "kind": "registered",
+  "key": "community_update_hashtag_mutation",
+  "hasDoc": false
+ },
+ "CommunityUpdateRuleMutation": {
+  "operation": "CommunityUpdateRuleMutation",
+  "queryId": "NKP_gS_p3iOu3X6vJnmz0w",
+  "kind": "registered",
+  "key": "community_update_rule_mutation",
+  "hasDoc": false
+ },
+ "CommunityUpdateSearchTagsMutation": {
+  "operation": "CommunityUpdateSearchTagsMutation",
+  "queryId": "u1AVfRfzvsB17ONypzZQaQ",
+  "kind": "registered",
+  "key": "community_update_search_tags_mutation",
+  "hasDoc": false
+ },
+ "ConnectTab": {
+  "operation": "ConnectTab",
+  "queryId": "RTJc0G9YcNe8TWuewkngkA",
+  "kind": "registered",
+  "key": "connect_tab",
+  "hasDoc": false
+ },
+ "RemoveFollower": {
+  "operation": "RemoveFollower",
+  "queryId": "QpNfg0kpPRfjROQ_9eOLXA",
+  "kind": "registered",
+  "key": "remove_follower",
+  "hasDoc": false
+ },
+ "UserProfileRepostsTimelineQuery": {
+  "operation": "UserProfileRepostsTimelineQuery",
+  "queryId": "5Gp4Cy4U13LBpmTBYnwCig",
+  "kind": "interface",
+  "key": "user_profile_reposts_timeline_query",
+  "hasDoc": true,
+  "queryLength": 34976
+ },
+ "CreateConversationPinnedTweet": {
+  "operation": "CreateConversationPinnedTweet",
+  "queryId": "e3H1Np2VoeQV0Q4DM-m-2A",
+  "kind": "registered",
+  "key": "create_conversation_pinned_tweet",
+  "hasDoc": false
+ },
+ "CreateNoteTweet": {
+  "operation": "CreateNoteTweet",
+  "queryId": "O5XC8wy4c9gvHD--ESnFSw",
+  "kind": "registered",
+  "key": "create_note_tweet",
+  "hasDoc": false
+ },
+ "CreateNudge": {
+  "operation": "CreateNudge",
+  "queryId": "wFmywMJdr-hzxtC6yG5ZuA",
+  "kind": "registered",
+  "key": "create_nudge",
+  "hasDoc": false
+ },
+ "CreateRetweet": {
+  "operation": "CreateRetweet",
+  "queryId": "3vfXQm74XhqrZMQ6u9hLlg",
+  "kind": "registered",
+  "key": "create_retweet",
+  "hasDoc": false
+ },
+ "CreateTweet": {
+  "operation": "CreateTweet",
+  "queryId": "7a2OWde8j7xI1d_WhPOMaA",
+  "kind": "registered",
+  "key": "create_tweet",
+  "hasDoc": false
+ },
+ "CreateTweetWithUndo": {
+  "operation": "CreateTweetWithUndo",
+  "queryId": "kc9IvxKXLkIvY3ldZukHDg",
+  "kind": "registered",
+  "key": "create_tweet_with_undo",
+  "hasDoc": false
+ },
+ "CreatorSubscriptionsTimelineQuery": {
+  "operation": "CreatorSubscriptionsTimelineQuery",
+  "queryId": "MkuUVjfQX61A4xH4mSxN5A",
+  "kind": "registered",
+  "key": "creator_subscriptions_timeline_query",
+  "hasDoc": false
+ },
+ "DelegateListDelegationGroupsQuery": {
+  "operation": "DelegateListDelegationGroupsQuery",
+  "queryId": "3zACe70xDse-DL5ZzC_FJA",
+  "kind": "registered",
+  "key": "delegate_list_delegation_groups_query",
+  "hasDoc": false
+ },
+ "DeleteConversationPinnedTweet": {
+  "operation": "DeleteConversationPinnedTweet",
+  "queryId": "AIoKJbPhwO-7lCdZz4ivdw",
+  "kind": "registered",
+  "key": "delete_conversation_pinned_tweet",
+  "hasDoc": false
+ },
+ "DeleteDraftTweet": {
+  "operation": "DeleteDraftTweet",
+  "queryId": "N9XszeuKTQsVfwsjaC69WQ",
+  "kind": "registered",
+  "key": "delete_draft_tweet",
+  "hasDoc": false
+ },
+ "DeleteRetweet": {
+  "operation": "DeleteRetweet",
+  "queryId": "r1IaAd_GIEunlPjVWVlD_w",
+  "kind": "registered",
+  "key": "delete_retweet",
+  "hasDoc": false
+ },
+ "DeleteTweet": {
+  "operation": "DeleteTweet",
+  "queryId": "kZyJ4Q1TNsZNByfrGX7Huw",
+  "kind": "registered",
+  "key": "delete_tweet",
+  "hasDoc": false
+ },
+ "DmClientAddConversationLabelMutation": {
+  "operation": "DmClientAddConversationLabelMutation",
+  "queryId": "wresodBLD4xXZgtUreymOQ",
+  "kind": "registered",
+  "key": "dm_client_add_conversation_label_mutation",
+  "hasDoc": false
+ },
+ "DmClientConversationLabelsQuery": {
+  "operation": "DmClientConversationLabelsQuery",
+  "queryId": "q4LiIZ0HjhzLLoKUwQLUJA",
+  "kind": "registered",
+  "key": "dm_client_conversation_labels_query",
+  "hasDoc": false
+ },
+ "DmClientDeleteConversationLabelMutation": {
+  "operation": "DmClientDeleteConversationLabelMutation",
+  "queryId": "JoRjWtplNLRVEwL3GlXo3g",
+  "kind": "registered",
+  "key": "dm_client_delete_conversation_label_mutation",
+  "hasDoc": false
+ },
+ "DmClientEducationFlagsQuery": {
+  "operation": "DmClientEducationFlagsQuery",
+  "queryId": "PjbVlSKO16LqZMMXPbZRww",
+  "kind": "registered",
+  "key": "dm_client_education_flags_query",
+  "hasDoc": false
+ },
+ "DmClientEducationFlagsUpdate": {
+  "operation": "DmClientEducationFlagsUpdate",
+  "queryId": "RCi-0mNWwT3z1kOlStYmeg",
+  "kind": "registered",
+  "key": "dm_client_education_flags_update",
+  "hasDoc": false
+ },
+ "DmClientModularSearchQueryAll": {
+  "operation": "DmClientModularSearchQueryAll",
+  "queryId": "-Cx-v10mNXJYwJpcwpehoA",
+  "kind": "registered",
+  "key": "dm_client_modular_search_query_all",
+  "hasDoc": false
+ },
+ "EditDraftTweet": {
+  "operation": "EditDraftTweet",
+  "queryId": "twf753nZ7krWNelKcm4Pww",
+  "kind": "registered",
+  "key": "edit_draft_tweet",
+  "hasDoc": false
+ },
+ "EditHistoryTimeline": {
+  "operation": "EditHistoryTimeline",
+  "queryId": "yTjoiI4_lZO3FwiUSoFsCQ",
+  "kind": "interface",
+  "key": "edit_history_timeline",
+  "hasDoc": true,
+  "conflict": [
+   "yTjoiI4_lZO3FwiUSoFsCQ",
+   "nQgL7h3FxZSwcMJ0ZqoFKg"
+  ],
+  "queryLength": 34933
+ },
+ "Explore": {
+  "operation": "Explore",
+  "queryId": "Zj8saoqORjPaB8FKXwaYPg",
+  "kind": "registered",
+  "key": "explore",
+  "hasDoc": false
+ },
+ "FavoriteTweet": {
+  "operation": "FavoriteTweet",
+  "queryId": "lI07N6Otwv1PhnEgXILM7A",
+  "kind": "registered",
+  "key": "favorite_tweet",
+  "hasDoc": false
+ },
+ "FavoritersTimeline": {
+  "operation": "FavoritersTimeline",
+  "queryId": "BK7iAo3fXG0bjpwEKWa74Q",
+  "kind": "registered",
+  "key": "favoriters_timeline",
+  "hasDoc": false
+ },
+ "GetConversationControlSettings": {
+  "operation": "GetConversationControlSettings",
+  "queryId": "uSS1UZnreGvtXo8463kSxQ",
+  "kind": "registered",
+  "key": "get_conversation_control_settings",
+  "hasDoc": false
+ },
+ "GetDraftTweets": {
+  "operation": "GetDraftTweets",
+  "queryId": "HaOsXLTy8FkNUD58u-RfZg",
+  "kind": "registered",
+  "key": "get_draft_tweets",
+  "hasDoc": false
+ },
+ "HomeTimeline": {
+  "operation": "HomeTimeline",
+  "queryId": "ob5uGlwVI-iAKKFx9YXoqg",
+  "kind": "interface",
+  "key": "home_timeline",
+  "hasDoc": true,
+  "conflict": [
+   "ob5uGlwVI-iAKKFx9YXoqg",
+   "yHHLSVLP4Hy6jSbB_BKy9g"
+  ],
+  "queryLength": 35004
+ },
+ "HomeTimelineLatest": {
+  "operation": "HomeTimelineLatest",
+  "queryId": "GQ6KFu0SWm7PFm62aMik5Q",
+  "kind": "interface",
+  "key": "home_timeline_latest",
+  "hasDoc": true,
+  "conflict": [
+   "GQ6KFu0SWm7PFm62aMik5Q",
+   "eaVmF7cjTA75Ewt7cb1Ddw"
+  ],
+  "queryLength": 34942
+ },
+ "ImmersiveViewerExploreMixerTimeline": {
+  "operation": "ImmersiveViewerExploreMixerTimeline",
+  "queryId": "UsztxIRwP6dxXKuVoQTIRw",
+  "kind": "registered",
+  "key": "immersive_viewer_explore_mixer_timeline",
+  "hasDoc": false
+ },
+ "IsIdentityVerifiedLabelHiddenPut": {
+  "operation": "IsIdentityVerifiedLabelHiddenPut",
+  "queryId": "KmEBnm_9O0-m_eRYZ6yqUA",
+  "kind": "registered",
+  "key": "is_identity_verified_label_hidden_put",
+  "hasDoc": false
+ },
+ "ListByIdQuery": {
+  "operation": "ListByIdQuery",
+  "queryId": "yJMGpM1RdI_3phPHH__0yQ",
+  "kind": "registered",
+  "key": "list_by_id_query",
+  "hasDoc": false
+ },
+ "ListCreate": {
+  "operation": "ListCreate",
+  "queryId": "KMsf_KtiCWe5Rm0mAGSc4w",
+  "kind": "registered",
+  "key": "list_create",
+  "hasDoc": false
+ },
+ "ListCreateRecommendedUsersTimeline": {
+  "operation": "ListCreateRecommendedUsersTimeline",
+  "queryId": "ReCJYeLHY2VGcSxFNtsZhA",
+  "kind": "registered",
+  "key": "list_create_recommended_users_timeline",
+  "hasDoc": false
+ },
+ "ListDelete": {
+  "operation": "ListDelete",
+  "queryId": "GaNPVF9EcFNrK01zcocfjQ",
+  "kind": "registered",
+  "key": "list_delete",
+  "hasDoc": false
+ },
+ "ListEditRecommendedUsersTimeline": {
+  "operation": "ListEditRecommendedUsersTimeline",
+  "queryId": "3swSgnFQkNtBhhi2hSa0Vw",
+  "kind": "interface",
+  "key": "list_edit_recommended_users_timeline",
+  "hasDoc": true,
+  "conflict": [
+   "3swSgnFQkNtBhhi2hSa0Vw",
+   "npMgJDovadQ6PYhOt2gMIA"
+  ],
+  "queryLength": 34920
+ },
+ "ListMemberAdd": {
+  "operation": "ListMemberAdd",
+  "queryId": "RbKnkhWtKALMS6HHfiZoZg",
+  "kind": "registered",
+  "key": "list_member_add",
+  "hasDoc": false
+ },
+ "ListMemberRemove": {
+  "operation": "ListMemberRemove",
+  "queryId": "U-6aeEPiVJGzvDDTrsvBmw",
+  "kind": "registered",
+  "key": "list_member_remove",
+  "hasDoc": false
+ },
+ "ListMembership": {
+  "operation": "ListMembership",
+  "queryId": "9iZQVKdMyngPnty1C1nRcw",
+  "kind": "registered",
+  "key": "list_membership",
+  "hasDoc": false
+ },
+ "ListPutBannerMedia": {
+  "operation": "ListPutBannerMedia",
+  "queryId": "NBHhKRCbMLaTHKhaqmTFyg",
+  "kind": "registered",
+  "key": "list_put_banner_media",
+  "hasDoc": false
+ },
+ "ListSubscribersTimelineQuery": {
+  "operation": "ListSubscribersTimelineQuery",
+  "queryId": "kvpzagUdyPrnbHrqbEgSOA",
+  "kind": "interface",
+  "key": "list_subscribers_timeline_query",
+  "hasDoc": true,
+  "conflict": [
+   "kvpzagUdyPrnbHrqbEgSOA",
+   "cDV9VkPmIAeHR0yDZg4qhw"
+  ],
+  "queryLength": 34900
+ },
+ "ListTimeline": {
+  "operation": "ListTimeline",
+  "queryId": "wpHYCmyAIJMeqCtrol-8iQ",
+  "kind": "registered",
+  "key": "list_timeline",
+  "hasDoc": false
+ },
+ "ListUpdate": {
+  "operation": "ListUpdate",
+  "queryId": "K_kCz0uS1FtS9evq19N5vg",
+  "kind": "registered",
+  "key": "list_update",
+  "hasDoc": false
+ },
+ "LoggedOutMrById": {
+  "operation": "LoggedOutMrById",
+  "queryId": "3FLq_70RtztZLCNkjDYkKQ",
+  "kind": "registered",
+  "key": "logged_out_mr_by_id",
+  "hasDoc": false
+ },
+ "MediaTimelineV2": {
+  "operation": "MediaTimelineV2",
+  "queryId": "gegyTdW8YAo0uCX9eVFk3Q",
+  "kind": "registered",
+  "key": "media_timeline_v2",
+  "hasDoc": false
+ },
+ "ModeratedTimeline": {
+  "operation": "ModeratedTimeline",
+  "queryId": "th7flEwW9aU2-Rj9Xr8Jbg",
+  "kind": "registered",
+  "key": "moderated_timeline",
+  "hasDoc": false
+ },
+ "MutationUnsubscribeFromDrop": {
+  "operation": "MutationUnsubscribeFromDrop",
+  "queryId": "PPQmv0KgHVZ0gpDOfkEb8Q",
+  "kind": "registered",
+  "key": "mutation_unsubscribe_from_drop",
+  "hasDoc": false
+ },
+ "MutationUploadCommerceProducts": {
+  "operation": "MutationUploadCommerceProducts",
+  "queryId": "txQwI4tQ8RfQxEN3SCeAkw",
+  "kind": "registered",
+  "key": "mutation_upload_commerce_products",
+  "hasDoc": false
+ },
+ "NuxUserRecommendationsPageQuery": {
+  "operation": "NuxUserRecommendationsPageQuery",
+  "queryId": "07zfHSr1oANh296kxa28rA",
+  "kind": "registered",
+  "key": "nux_user_recommendations_page_query",
+  "hasDoc": false
+ },
+ "PinTimeline": {
+  "operation": "PinTimeline",
+  "queryId": "lrEwaoucVKgfBcVHzEetMQ",
+  "kind": "interface",
+  "key": "pin_timeline",
+  "hasDoc": true,
+  "conflict": [
+   "lrEwaoucVKgfBcVHzEetMQ",
+   "sVfba_CIpYptupPYFPbwPA"
+  ],
+  "queryLength": 4095
+ },
+ "PinTweet": {
+  "operation": "PinTweet",
+  "queryId": "ztf5duPxJV_QJOO6s-Pkzg",
+  "kind": "registered",
+  "key": "pin_tweet",
+  "hasDoc": false
+ },
+ "PlaySotreSubscriptionPurchaseToken": {
+  "operation": "PlaySotreSubscriptionPurchaseToken",
+  "queryId": "kQJWXMdGvfAZ_4aFR2OEcA",
+  "kind": "registered",
+  "key": "play_sotre_subscription_purchase_token",
+  "hasDoc": false
+ },
+ "ProductCatalog": {
+  "operation": "ProductCatalog",
+  "queryId": "AwqAW3ilnprnFohpWIB84g",
+  "kind": "registered",
+  "key": "product_catalog",
+  "hasDoc": false
+ },
+ "ProfileViewerExploreMixerTimeline": {
+  "operation": "ProfileViewerExploreMixerTimeline",
+  "queryId": "dhvOtFrHu44e4d6--U9faQ",
+  "kind": "registered",
+  "key": "profile_viewer_explore_mixer_timeline",
+  "hasDoc": false
+ },
+ "QueryShopByRestIdV2": {
+  "operation": "QueryShopByRestIdV2",
+  "queryId": "Nln5InUoZ33JoGz3aV1CqA",
+  "kind": "registered",
+  "key": "query_shop_by_rest_id_v2",
+  "hasDoc": false
+ },
+ "QueryShopCoreDataV2": {
+  "operation": "QueryShopCoreDataV2",
+  "queryId": "ZLJuehSCkqOJTIffu4SIyg",
+  "kind": "registered",
+  "key": "query_shop_core_data_v2",
+  "hasDoc": false
+ },
+ "RankedCommunitiesTimelineQuery": {
+  "operation": "RankedCommunitiesTimelineQuery",
+  "queryId": "o-sMgpcyEj7C-h7hTmCkGg",
+  "kind": "interface",
+  "key": "ranked_communities_timeline_query",
+  "hasDoc": true,
+  "conflict": [
+   "o-sMgpcyEj7C-h7hTmCkGg",
+   "rQYJTWzzD3bYSA2FR_EZIQ"
+  ],
+  "queryLength": 34792
+ },
+ "RecordNudgeAction": {
+  "operation": "RecordNudgeAction",
+  "queryId": "qr2AAR3Lx10iac0BXsmo0Q",
+  "kind": "registered",
+  "key": "record_nudge_action",
+  "hasDoc": false
+ },
+ "RecordNudgeResult": {
+  "operation": "RecordNudgeResult",
+  "queryId": "OxPPZHeXYtxTVRhXomfxNA",
+  "kind": "registered",
+  "key": "record_nudge_result",
+  "hasDoc": false
+ },
+ "ReportDetailQuery": {
+  "operation": "ReportDetailQuery",
+  "queryId": "jvTvzl6_BeSqaKx4EPn2hw",
+  "kind": "registered",
+  "key": "report_detail_query",
+  "hasDoc": false
+ },
+ "RetweetersTimeline": {
+  "operation": "RetweetersTimeline",
+  "queryId": "8Bev736i73fHjdOAHWchHA",
+  "kind": "registered",
+  "key": "retweeters_timeline",
+  "hasDoc": false
+ },
+ "SafetyModeDismissSuggestedAction": {
+  "operation": "SafetyModeDismissSuggestedAction",
+  "queryId": "VCzyC1OiUFidTNokWUIDkg",
+  "kind": "registered",
+  "key": "safety_mode_dismiss_suggested_action",
+  "hasDoc": false
+ },
+ "SafetyModeFacePile": {
+  "operation": "SafetyModeFacePile",
+  "queryId": "L5GGgGxgm-3vJOrPu9EknA",
+  "kind": "registered",
+  "key": "safety_mode_face_pile",
+  "hasDoc": false
+ },
+ "SafetyModeSettings": {
+  "operation": "SafetyModeSettings",
+  "queryId": "UBSi0yYDfd2SMtQrLPoD7A",
+  "kind": "registered",
+  "key": "safety_mode_settings",
+  "hasDoc": false
+ },
+ "ScheduledSpaceSubscriberDelete": {
+  "operation": "ScheduledSpaceSubscriberDelete",
+  "queryId": "okZ9Xy4CQvnG4pNezfOPjg",
+  "kind": "registered",
+  "key": "scheduled_space_subscriber_delete",
+  "hasDoc": false
+ },
+ "SearchTimeline": {
+  "operation": "SearchTimeline",
+  "queryId": "vVjlF1BfAzzsC9eUx0p4lg",
+  "kind": "registered",
+  "key": "search_timeline",
+  "hasDoc": false
+ },
+ "SearchUnsubscribe": {
+  "operation": "SearchUnsubscribe",
+  "queryId": "z8P6pVy7VZ1HX-ohx3mX9w",
+  "kind": "registered",
+  "key": "search_unsubscribe",
+  "hasDoc": false
+ },
+ "SubscriptionProductFeaturesFetch": {
+  "operation": "SubscriptionProductFeaturesFetch",
+  "queryId": "Se5DRn5kQaZREBSyGOU7VA",
+  "kind": "registered",
+  "key": "subscription_product_features_fetch",
+  "hasDoc": false
+ },
+ "SuperFollowProducts": {
+  "operation": "SuperFollowProducts",
+  "queryId": "FEELRJqfigRmUKIHWGjUKg",
+  "kind": "registered",
+  "key": "super_follow_products",
+  "hasDoc": false
+ },
+ "SwitchProfessionalAccountType": {
+  "operation": "SwitchProfessionalAccountType",
+  "queryId": "wlCsIYN0kTO35cpIRhnBVQ",
+  "kind": "registered",
+  "key": "switch_professional_account_type",
+  "hasDoc": false
+ },
+ "TimelineByIdQuery": {
+  "operation": "TimelineByIdQuery",
+  "queryId": "dmSFtR6IyzsK3F_Y77yBZQ",
+  "kind": "interface",
+  "key": "timeline_by_id_query",
+  "hasDoc": true,
+  "conflict": [
+   "dmSFtR6IyzsK3F_Y77yBZQ",
+   "MFX1Hlezb0RFO2ndWnAKLg"
+  ],
+  "queryLength": 34785
+ },
+ "TipjarDisableAll": {
+  "operation": "TipjarDisableAll",
+  "queryId": "bOfyDg0mcmcKBIfAM8wAeA",
+  "kind": "registered",
+  "key": "tipjar_disable_all",
+  "hasDoc": false
+ },
+ "TipjarUpdateBitcoin": {
+  "operation": "TipjarUpdateBitcoin",
+  "queryId": "0BEwxrrUaTXkE-0pz2jkEA",
+  "kind": "registered",
+  "key": "tipjar_update_bitcoin",
+  "hasDoc": false
+ },
+ "TipjarUpdateCashapp": {
+  "operation": "TipjarUpdateCashapp",
+  "queryId": "scO5jbvhTG5vhFEtpOgKZA",
+  "kind": "registered",
+  "key": "tipjar_update_cashapp",
+  "hasDoc": false
+ },
+ "TipjarUpdateChipper": {
+  "operation": "TipjarUpdateChipper",
+  "queryId": "RFsFCzgHx2qU5zjgfoze0g",
+  "kind": "registered",
+  "key": "tipjar_update_chipper",
+  "hasDoc": false
+ },
+ "TipjarUpdateEnabled": {
+  "operation": "TipjarUpdateEnabled",
+  "queryId": "5zLqCpUnH7SJPBN5FhRk3A",
+  "kind": "registered",
+  "key": "tipjar_update_enabled",
+  "hasDoc": false
+ },
+ "GetAiTrendById": {
+  "operation": "GetAiTrendById",
+  "queryId": "m3g_VDR_IupaFw-gQJdumQ",
+  "kind": "registered",
+  "key": null,
+  "hasDoc": false
+ },
+ "AboutAccountQuery": {
+  "operation": "AboutAccountQuery",
+  "queryId": "zUnx-DLN9dkwOkNhTLySjg",
+  "kind": "registered",
+  "key": "about_account_query",
+  "hasDoc": false
+ },
+ "UserByRestId": {
+  "operation": "UserByRestId",
+  "queryId": "QdS5LJDl99iL_KUzckdfNQ",
+  "kind": "registered",
+  "key": "user_by_rest_id",
+  "hasDoc": false
+ },
+ "UserByScreenName": {
+  "operation": "UserByScreenName",
+  "queryId": "IGgvgiOx4QZndDHuD3x9TQ",
+  "kind": "registered",
+  "key": "user_by_screen_name",
+  "hasDoc": false
+ },
+ "TweetDetail": {
+  "operation": "TweetDetail",
+  "queryId": "6uCvnic3m5reVuehkvHa3w",
+  "kind": "registered",
+  "key": "tweet_detail",
+  "hasDoc": false
+ },
+ "GlobalCommunitiesPostSearchTimeline": {
+  "operation": "GlobalCommunitiesPostSearchTimeline",
+  "queryId": "flrmikCoPPiQobzbRlBizg",
+  "kind": "registered",
+  "key": "global_communities_post_search_timeline",
+  "hasDoc": false
+ },
+ "GlobalCommunitiesLatestPostSearchTimeline": {
+  "operation": "GlobalCommunitiesLatestPostSearchTimeline",
+  "queryId": "Fae3b6-iWlKR2xnc2V-fiw",
+  "kind": "registered",
+  "key": "global_communities_latest_post_search_timeline",
+  "hasDoc": false
+ },
+ "SmartTagQuery": {
+  "operation": "SmartTagQuery",
+  "queryId": "5Yz8cmVvNqZqff3VpB8tyw",
+  "kind": "registered",
+  "key": "smart_tag_query",
+  "hasDoc": false
+ },
+ "GrokAutoTranslationToggleMutation": {
+  "operation": "GrokAutoTranslationToggleMutation",
+  "queryId": "3f9Qr6WPCh76-ip7h2r-tA",
+  "kind": "registered",
+  "key": "grok_auto_translation_toggle_mutation",
+  "hasDoc": false
+ },
+ "GrokAutoTranslationToggleQuery": {
+  "operation": "GrokAutoTranslationToggleQuery",
+  "queryId": "J0iibs_CtTMRvj1R7Iykmg",
+  "kind": "registered",
+  "key": "grok_auto_translation_toggle_query",
+  "hasDoc": false
+ },
+ "GetCardPreviewOrJetfuelFromUrlQuery": {
+  "operation": "GetCardPreviewOrJetfuelFromUrlQuery",
+  "queryId": "u5pgewGXcOMNzL2wKJhoWg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 1189
+ },
+ "ConversationDeleteMutation": {
+  "operation": "ConversationDeleteMutation",
+  "queryId": "YHFgPwrwwnml8gF8H1YhCA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 296
+ },
+ "GetProfileConnectionPageByScreenName": {
+  "operation": "GetProfileConnectionPageByScreenName",
+  "queryId": "qfZu4esl8joPGC4bjRBUJQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 624
+ },
+ "RepostersTimelineQuery": {
+  "operation": "RepostersTimelineQuery",
+  "queryId": "kX8xZ7osckoBKOBQtoDC5Q",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34811
+ },
+ "GetTopicPage": {
+  "operation": "GetTopicPage",
+  "queryId": "WzRbW8nl9-ZJ2ZBhA0hfNQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 628
+ },
+ "XChatGetEnrollmentSessionMutation": {
+  "operation": "XChatGetEnrollmentSessionMutation",
+  "queryId": "KOvF0kG8ItHUyG0LRcKZWg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 298
+ },
+ "XChatInitiatePasscodeRetrievalMutation": {
+  "operation": "XChatInitiatePasscodeRetrievalMutation",
+  "queryId": "nTsYB72LJ1it6qlLt0EexQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 214
+ },
+ "AddWelcomeMessageToConversationMutation": {
+  "operation": "AddWelcomeMessageToConversationMutation",
+  "queryId": "n00JbEbhywS5lGvKrvFmJg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 449
+ },
+ "TypeaheadXChatQuery": {
+  "operation": "TypeaheadXChatQuery",
+  "queryId": "I4OSnuMmvD5x-N8PfpDDyA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 3917
+ },
+ "ListsTimelineQuery": {
+  "operation": "ListsTimelineQuery",
+  "queryId": "-o9MiGu2tUoTvgjG8hodEA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34885
+ },
+ "UserProfileFavoritesTimelineQuery": {
+  "operation": "UserProfileFavoritesTimelineQuery",
+  "queryId": "kFeudmJpk2bQTQywiX4Vmg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34978
+ },
+ "UpdateGroupAdminSettingsMutation": {
+  "operation": "UpdateGroupAdminSettingsMutation",
+  "queryId": "x5knO9L-5h-hoCX3dzkNIw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 519
+ },
+ "DeleteMessageMutation": {
+  "operation": "DeleteMessageMutation",
+  "queryId": "4gsDQKEmYkOtvsSIpHXdQA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 400
+ },
+ "ExploreCommunitiesTimelineQuery": {
+  "operation": "ExploreCommunitiesTimelineQuery",
+  "queryId": "3ZXzvGpErqZZ5dmM2XPt9w",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34841
+ },
+ "InitializeGroupConversationMutation": {
+  "operation": "InitializeGroupConversationMutation",
+  "queryId": "5zG9k_50ppvLTtPZbOC1NQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 187
+ },
+ "UserProfileMediaTimelineQuery": {
+  "operation": "UserProfileMediaTimelineQuery",
+  "queryId": "ytVpKmE_goUL4z2YYgxkwg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34962
+ },
+ "XChatSendEnrollmentPublicKeyMutation": {
+  "operation": "XChatSendEnrollmentPublicKeyMutation",
+  "queryId": "aS0916UCJ9VUkwucQoUYow",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 265
+ },
+ "AddAsAdminMutation": {
+  "operation": "AddAsAdminMutation",
+  "queryId": "1RrduaHSFpenZuOQzgSZqA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 330
+ },
+ "GetPublicKeys": {
+  "operation": "GetPublicKeys",
+  "queryId": "GJQbOZALDO5D3Zp2IZhH6w",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 1166
+ },
+ "RequestToJoinGroupMutation": {
+  "operation": "RequestToJoinGroupMutation",
+  "queryId": "cV0VjzT5UDJW3cbcvALYOg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 325
+ },
+ "DeleteXChatPublicKeyMutation": {
+  "operation": "DeleteXChatPublicKeyMutation",
+  "queryId": "W5iiIL1MVw4vomq-zLPHUQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 253
+ },
+ "XChatGrokSearchPageQuery": {
+  "operation": "XChatGrokSearchPageQuery",
+  "queryId": "fViyRu-_mQfM3rS0ZvRxFQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 616
+ },
+ "UserProfileOriginalsTimelineQuery": {
+  "operation": "UserProfileOriginalsTimelineQuery",
+  "queryId": "OpZFUTVdtRb_xLXfbqb6iw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34980
+ },
+ "GetGroupJoinRequestsQuery": {
+  "operation": "GetGroupJoinRequestsQuery",
+  "queryId": "zHaHj9LnoXunUykdWf9QIg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 4040
+ },
+ "GetInboxPageRequestQuery": {
+  "operation": "GetInboxPageRequestQuery",
+  "queryId": "CxDhMZdF2DKEJriMkWIRCw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 6032
+ },
+ "RemoveFromGroupMutation": {
+  "operation": "RemoveFromGroupMutation",
+  "queryId": "ZAg00_bioEzpvPesmrNPHg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 344
+ },
+ "BookmarksTimelineQuery": {
+  "operation": "BookmarksTimelineQuery",
+  "queryId": "G71T0f4Uf6ZsZB2k7gEiNA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34773
+ },
+ "AcceptMessageRequestMutation": {
+  "operation": "AcceptMessageRequestMutation",
+  "queryId": "4YtAUhUwROL6ejia63Lj6Q",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 561
+ },
+ "DmAvPermissionsQuery": {
+  "operation": "DmAvPermissionsQuery",
+  "queryId": "kfX5AHDKZrivyHwCaz68mQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 220
+ },
+ "FinalizeXChatMediaUploadMutation": {
+  "operation": "FinalizeXChatMediaUploadMutation",
+  "queryId": "P1CLOMdiMe9ii1MdIJbhcQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 512
+ },
+ "DmSettingsQuery": {
+  "operation": "DmSettingsQuery",
+  "queryId": "jr8PVMRdhyJcEsDlNL87Vg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 389
+ },
+ "AddGroupMembersMutation": {
+  "operation": "AddGroupMembersMutation",
+  "queryId": "h_jTCUo4lmIM7UJvzZXZ4w",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 1162
+ },
+ "GetJoinedCommunities": {
+  "operation": "GetJoinedCommunities",
+  "queryId": "JBOtFRiRxHNfYrkcbwMDTA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 1495
+ },
+ "CommunityDetailTimelineQuery": {
+  "operation": "CommunityDetailTimelineQuery",
+  "queryId": "FjWCoSvqrNHs-XNLx55WQQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 35105
+ },
+ "SendMessageEventMutation": {
+  "operation": "SendMessageEventMutation",
+  "queryId": "G7WwJGKvTBVb-BXhZNSVMw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 211
+ },
+ "ListMembersTimelineQuery": {
+  "operation": "ListMembersTimelineQuery",
+  "queryId": "lElZR1fuVvwBB_mlLMumIw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34892
+ },
+ "ModeratedTweetTimelineQuery": {
+  "operation": "ModeratedTweetTimelineQuery",
+  "queryId": "lKT4bcFBoA17jVnElbIbRg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34944
+ },
+ "CreateGroupConversationMutation": {
+  "operation": "CreateGroupConversationMutation",
+  "queryId": "dKl4aC-sBqQWgRhkQXV2wg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 1048
+ },
+ "GetMessageEventsPageQuery": {
+  "operation": "GetMessageEventsPageQuery",
+  "queryId": "OaSNyAhxUZ9AaW2z9cC26A",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 618
+ },
+ "PinnableTimelinesQuery": {
+  "operation": "PinnableTimelinesQuery",
+  "queryId": "Sg42AEtZXoyqTMraDD1vJw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 4004
+ },
+ "XChatAcceptEnrollmentMutation": {
+  "operation": "XChatAcceptEnrollmentMutation",
+  "queryId": "3OqnkNBoD_u-WQ3vYF3MwA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 264
+ },
+ "GroupInviteDetailsQuery": {
+  "operation": "GroupInviteDetailsQuery",
+  "queryId": "wubTkA5DWZXuf3ugyqStPg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 509
+ },
+ "ListOwnershipsTimelineQuery": {
+  "operation": "ListOwnershipsTimelineQuery",
+  "queryId": "2EcVEDNHclRWvi1fvHQ8dA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34839
+ },
+ "GetConversationPageQuery": {
+  "operation": "GetConversationPageQuery",
+  "queryId": "IVlXls9JTnbgQ1gxsGAfJA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 498
+ },
+ "GetInitialXChatPageQuery": {
+  "operation": "GetInitialXChatPageQuery",
+  "queryId": "XbDtnn4iqMRO13uK4cgqCA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 6451
+ },
+ "XChatDenyEnrollmentMutation": {
+  "operation": "XChatDenyEnrollmentMutation",
+  "queryId": "7WqlOYn720k4XH8f3-_8Xw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 165
+ },
+ "EnableScreenCaptureBlockingMutation": {
+  "operation": "EnableScreenCaptureBlockingMutation",
+  "queryId": "8X3jRUeAYXWoQ025G0B73g",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 276
+ },
+ "XChatCompleteEnrollmentMutation": {
+  "operation": "XChatCompleteEnrollmentMutation",
+  "queryId": "_z_jittTpDl2zvg2e_iI4w",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 173
+ },
+ "EditGroupConversationMutation": {
+  "operation": "EditGroupConversationMutation",
+  "queryId": "BdxAfKRHyLj-dYHpCqu7Ag",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 938
+ },
+ "GifEnumerateCategoryQuery": {
+  "operation": "GifEnumerateCategoryQuery",
+  "queryId": "sbJqgmKCeJWPedP7WGe7OQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 315
+ },
+ "SetNotificationLastSeenCursor": {
+  "operation": "SetNotificationLastSeenCursor",
+  "queryId": "_XO56PQttE4SghAtv2ZgMQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 241
+ },
+ "PinnedTimelinesQuery": {
+  "operation": "PinnedTimelinesQuery",
+  "queryId": "wRISZmYcbmeT-jSMwdHtHQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 3996
+ },
+ "RemoveAsAdminMutation": {
+  "operation": "RemoveAsAdminMutation",
+  "queryId": "i3RDeN7PE4lDpu7dpPjbZw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 339
+ },
+ "UpdateDmSettingsMutation": {
+  "operation": "UpdateDmSettingsMutation",
+  "queryId": "mlBrJopw8TCKeVpaqb5AdQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 791
+ },
+ "ViewerBlockingTimeline": {
+  "operation": "ViewerBlockingTimeline",
+  "queryId": "U07TB8xYtl9DsThafdimbA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34774
+ },
+ "DeleteMessageRequestInboxMutation": {
+  "operation": "DeleteMessageRequestInboxMutation",
+  "queryId": "YnRLd7nyqZHq6ZFBwZqeqw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 277
+ },
+ "FinanceSearchTags": {
+  "operation": "FinanceSearchTags",
+  "queryId": "u1vv2E2q1AWovMU0KwmZ6Q",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 1263
+ },
+ "FavouritersTimelineQuery": {
+  "operation": "FavouritersTimelineQuery",
+  "queryId": "kCov7kr120K_9fwaz4JA0A",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34813
+ },
+ "XChatSendGrokMessagePlaintextMutation": {
+  "operation": "XChatSendGrokMessagePlaintextMutation",
+  "queryId": "qm71_NDegIBh5UY73hBXaQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 302
+ },
+ "AddXChatPublicKeyMutation": {
+  "operation": "AddXChatPublicKeyMutation",
+  "queryId": "CQsk6GRuWAVabyXqqEG1sA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 574
+ },
+ "GetProfileConnectionPage": {
+  "operation": "GetProfileConnectionPage",
+  "queryId": "BV5FQH8cR7yndazEwmKTZg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 603
+ },
+ "DisableGroupInviteMutation": {
+  "operation": "DisableGroupInviteMutation",
+  "queryId": "GIIfeUYJ6NwVK9Deyw2Dqg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 297
+ },
+ "SearchTimelineQuery": {
+  "operation": "SearchTimelineQuery",
+  "queryId": "WO0XY-EH2A4GEXdLtSTFgg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34995
+ },
+ "GetPostById": {
+  "operation": "GetPostById",
+  "queryId": "UEHajIwFFcBXQOXCt3xvHQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 18941
+ },
+ "UserProfileHighlightsTimelineQuery": {
+  "operation": "UserProfileHighlightsTimelineQuery",
+  "queryId": "SwHnWu94kNf3hy71-GHhRg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34977
+ },
+ "DmBlockMutation": {
+  "operation": "DmBlockMutation",
+  "queryId": "8OFwIC6-G-KVg4LCu7V0oQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 157
+ },
+ "RejectJoinGroupMutation": {
+  "operation": "RejectJoinGroupMutation",
+  "queryId": "Y4VSHGC2pgQEc09Ek1pgZA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 379
+ },
+ "GetMessageRequestsPageQuery": {
+  "operation": "GetMessageRequestsPageQuery",
+  "queryId": "tLMyTOvXOXoA3Pi41p7x4Q",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 927
+ },
+ "NotificationTimelineQuery": {
+  "operation": "NotificationTimelineQuery",
+  "queryId": "5BWBRnlena4_KqkQiWeIaQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 35086
+ },
+ "UserProfileNewRepliesTimelineQuery": {
+  "operation": "UserProfileNewRepliesTimelineQuery",
+  "queryId": "Zuvnsyj31KUN49sddxrhSw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34979
+ },
+ "XChatCreateEnrollmentSessionMutation": {
+  "operation": "XChatCreateEnrollmentSessionMutation",
+  "queryId": "sAkeiiKaXEGVI7X2zuADqg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 291
+ },
+ "UserProfileRepliesTimelineQuery": {
+  "operation": "UserProfileRepliesTimelineQuery",
+  "queryId": "PSBOqDra02L8mrBmnzklJQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34979
+ },
+ "ResetPasscodeMutation": {
+  "operation": "ResetPasscodeMutation",
+  "queryId": "tmN0Hq8qLWhk3OEKHbpekA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 102
+ },
+ "ListMembershipQuery": {
+  "operation": "ListMembershipQuery",
+  "queryId": "Kpc_Mwu3CxzKzWdsiUp--Q",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34955
+ },
+ "GetJetfuelAttachmentComposer": {
+  "operation": "GetJetfuelAttachmentComposer",
+  "queryId": "sK_rJkDSVO_F7MSoF-Na2Q",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 233
+ },
+ "ViewerMutingTimeline": {
+  "operation": "ViewerMutingTimeline",
+  "queryId": "n0wKN-YgJnLQIRb9m5Xwzw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34770
+ },
+ "GetUsersByIdsForXChat": {
+  "operation": "GetUsersByIdsForXChat",
+  "queryId": "2jiOJf7Xr0Lcr3pDxGWp-g",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 3717
+ },
+ "InitializeXChatMediaUploadMutation": {
+  "operation": "InitializeXChatMediaUploadMutation",
+  "queryId": "vTsSDEpF4eVYbR-waSl37g",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 537
+ },
+ "XChatSendEnrollmentEncryptedKeysMutation": {
+  "operation": "XChatSendEnrollmentEncryptedKeysMutation",
+  "queryId": "nXbEKrcM_Gq5Q0fx0U3JBw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 276
+ },
+ "UserProfileSuperFollowersTimelineQuery": {
+  "operation": "UserProfileSuperFollowersTimelineQuery",
+  "queryId": "i-pglBDHoe-SdQil6tyVQA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34992
+ },
+ "MuteConversationMutation": {
+  "operation": "MuteConversationMutation",
+  "queryId": "6iDsxSkhGLvdiJpqtAtzTQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 276
+ },
+ "UnmuteConversationMutation": {
+  "operation": "UnmuteConversationMutation",
+  "queryId": "_f8wd8RlQCCysv8yMKeiaw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 280
+ },
+ "UpdateConversationTTLMutation": {
+  "operation": "UpdateConversationTTLMutation",
+  "queryId": "Gu3kCEwNN2V-Az8NDk30Zg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 322
+ },
+ "GetMessageReadTimestampsQuery": {
+  "operation": "GetMessageReadTimestampsQuery",
+  "queryId": "AOomju6YIYHWl2XjC55-Cg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 369
+ },
+ "AllSubscribedListsTimelineQuery": {
+  "operation": "AllSubscribedListsTimelineQuery",
+  "queryId": "G4UfQ6NnEcwgT0U3grcy8A",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34849
+ },
+ "DmUnblockMutation": {
+  "operation": "DmUnblockMutation",
+  "queryId": "aJgYJD7N7GNauvCBRJy4sg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 3718
+ },
+ "AddEncryptedConversationKeysMutation": {
+  "operation": "AddEncryptedConversationKeysMutation",
+  "queryId": "4V1KC8ue2tHHvRuIzeczdg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 690
+ },
+ "GetInboxPageConversationDataQuery": {
+  "operation": "GetInboxPageConversationDataQuery",
+  "queryId": "uSZ-OyrgS_zbJ3S_byhXfQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 5607
+ },
+ "RemoveConversationTTLMutation": {
+  "operation": "RemoveConversationTTLMutation",
+  "queryId": "EqSXvxskUyw99ARuIbhYlg",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 276
+ },
+ "GenerateXChatTokenMutation": {
+  "operation": "GenerateXChatTokenMutation",
+  "queryId": "Qh3fZRjPPtPoHYR_2sCZsA",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 119
+ },
+ "ListManagementTimelineQuery": {
+  "operation": "ListManagementTimelineQuery",
+  "queryId": "matXd6ZyjE-rbQdxEecZrQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34827
+ },
+ "GetMessageEventsBySequenceIdQuery": {
+  "operation": "GetMessageEventsBySequenceIdQuery",
+  "queryId": "WU1OOeTQbDQX8sc-HdCk8g",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 254
+ },
+ "SendMessageCreateMutation": {
+  "operation": "SendMessageCreateMutation",
+  "queryId": "TWRPP7gnKwV_R8-tE-Dd3Q",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 516
+ },
+ "GifSearchQuery": {
+  "operation": "GifSearchQuery",
+  "queryId": "ciUL4BnRPKal2uL1fL2aHw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 283
+ },
+ "EnableGroupInviteMutation": {
+  "operation": "EnableGroupInviteMutation",
+  "queryId": "WlxTMdzK_uh-miHVHXv15g",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 1070
+ },
+ "UpdatePinnedTimelines": {
+  "operation": "UpdatePinnedTimelines",
+  "queryId": "_dXVp5FkNcxNwiK6BqBjig",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 4106
+ },
+ "UpdateXChatUserRealmStateMutation": {
+  "operation": "UpdateXChatUserRealmStateMutation",
+  "queryId": "B4iU-NL0I05KoyZzh9E2sw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 244
+ },
+ "HomeTimelineSubscriptions": {
+  "operation": "HomeTimelineSubscriptions",
+  "queryId": "KYJuCaO7I2yscLZu5xmj_A",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34891
+ },
+ "UserProfileAffiliatesTimelineQuery": {
+  "operation": "UserProfileAffiliatesTimelineQuery",
+  "queryId": "ogxBnBB3jELw56w17Ipa2w",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 35040
+ },
+ "BookmarksSearchTimelineQuery": {
+  "operation": "BookmarksSearchTimelineQuery",
+  "queryId": "TP2IwOXOfBnbq0dI5AOioQ",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 34897
+ },
+ "DisableScreenCaptureBlockingMutation": {
+  "operation": "DisableScreenCaptureBlockingMutation",
+  "queryId": "qrnlxRj5zx9nYo7QKkJMSw",
+  "kind": "interface",
+  "key": null,
+  "hasDoc": true,
+  "queryLength": 278
+ }
+}

@@ -1,0 +1,276 @@
+/* HyperOS 原字体：MiSans（小米官方，Apache-2.0）。
+   按界面实际用到的 573 个字符做了子集，两个字重合计 117KB。
+   拉丁与中文统一用 MiSans，观感与 HyperOS 一致。 */
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans-Regular.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MiSans';
+  src: url('/fonts/MiSans-Bold.woff2') format('woff2');
+  font-weight: 600 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+ * 视觉基准：miuix-vue。
+ * 页面底色是浅灰 surface，内容承载在白色圆角卡片上；
+ * X 的蓝色只作为主操作色；结构保持顶栏 / 双时间线 / 底栏 / FAB。
+ */
+:root {
+  --ck-blue: #1d9bf0;
+  --ck-blue-hover: #1a8cd8;
+  --ck-red: #f4212e;
+  --ck-green: #00ba7c;
+  --ck-pink: #f91880;
+
+  /* 浅色：整体白底 + 极淡灰做层次，不使用"卡片套卡片" */
+  --ck-bg: #ffffff;
+  --ck-bg-elevated: #ffffff;
+  --ck-bg-sunken: #f2f3f5;
+  --ck-card: #ffffff;
+  --ck-card-pressed: #f7f8fa;
+
+  --ck-text: #0b0f14;
+  --ck-text-secondary: #5b6b7c;
+  --ck-text-tertiary: #8f9ba8;
+  --ck-border: #e8ebee;
+  --ck-divider: #eceff2;
+  --ck-hover: rgba(11, 15, 20, 0.035);
+  --ck-active: rgba(29, 155, 240, 0.1);
+  --ck-overlay: rgba(0, 0, 0, 0.4);
+
+  --ck-font: 'MiSans', 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ck-radius-card: 16px;
+  --ck-radius-sheet: 28px;
+  --ck-page-gap: 0px;
+
+  /* HyperOS：层次靠极淡阴影而非边框 */
+  --ck-shadow-card: 0 1px 2px rgba(11, 15, 20, 0.04), 0 4px 14px rgba(11, 15, 20, 0.03);
+  --ck-shadow-float: 0 4px 12px rgba(29, 155, 240, 0.3), 0 10px 28px rgba(11, 15, 20, 0.14);
+  --ck-ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --ck-ease-out: cubic-bezier(0.2, 0, 0, 1);
+
+  /* 大标题（HyperOS 首页标题是 28-32px 粗体） */
+  --ck-title-size: 30px;
+  --ck-title-weight: 700;
+}
+
+html[data-theme='dim'] {
+  --ck-bg: #0b1016;
+  --ck-bg-elevated: #151c24;
+  --ck-bg-sunken: #1c252f;
+  --ck-card: #151c24;
+  --ck-card-pressed: #1c252f;
+  --ck-text: #eef2f6;
+  --ck-text-secondary: #93a1b0;
+  --ck-text-tertiary: #64727f;
+  --ck-border: #242e38;
+  --ck-divider: #1f2a34;
+  --ck-hover: rgba(255, 255, 255, 0.045);
+  --ck-active: rgba(29, 155, 240, 0.18);
+  --ck-overlay: rgba(0, 0, 0, 0.62);
+  --ck-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='black'] {
+  --ck-bg: #000000;
+  --ck-bg-elevated: #0d0d0d;
+  --ck-bg-sunken: #161616;
+  --ck-card: #0d0d0d;
+  --ck-card-pressed: #161616;
+  --ck-text: #e9edf0;
+  --ck-text-secondary: #79838d;
+  --ck-text-tertiary: #545c64;
+  --ck-border: #1e1e1e;
+  --ck-divider: #1c1c1c;
+  --ck-hover: rgba(255, 255, 255, 0.04);
+  --ck-active: rgba(29, 155, 240, 0.18);
+  --ck-overlay: rgba(0, 0, 0, 0.72);
+  --ck-shadow-card: none;
+}
+
+/* miuix 主题令牌映射：让组件库的胶囊、卡片、面板自动使用这套配色。 */
+:root,
+html[data-theme='dim'],
+html[data-theme='black'] {
+  --m-color-primary: var(--ck-blue);
+  --m-color-on-primary: #ffffff;
+  --m-color-primary-variant: var(--ck-blue);
+  --m-color-on-primary-variant: #aecdff;
+  --m-color-background: var(--ck-bg);
+  --m-color-on-background: var(--ck-text);
+  --m-color-surface: var(--ck-bg);
+  --m-color-on-surface: var(--ck-text);
+  --m-color-surface-container: var(--ck-card);
+  --m-color-on-surface-container: var(--ck-text);
+  --m-color-on-surface-container-variant: var(--ck-text-secondary);
+  --m-color-surface-container-high: var(--ck-bg-sunken);
+  --m-color-on-surface-container-high: var(--ck-text-tertiary);
+  --m-color-on-surface-container-highest: var(--ck-text-secondary);
+  --m-color-on-surface-secondary: var(--ck-text-secondary);
+  --m-color-on-surface-variant-summary: var(--ck-text-secondary);
+  --m-color-on-surface-variant-actions: var(--ck-text-tertiary);
+  --m-color-outline: var(--ck-border);
+  --m-color-divider-line: var(--ck-border);
+  --m-color-secondary-variant: var(--ck-bg-sunken);
+  --m-color-on-secondary-variant: var(--ck-text);
+  --m-color-disabled-secondary-variant: var(--ck-bg-sunken);
+  --m-color-disabled-on-secondary-variant: var(--ck-text-tertiary);
+  --m-color-disabled-primary-button: #8ecdf8;
+  --m-color-disabled-on-primary-button: #ffffff;
+  --m-color-window-dimming: var(--ck-overlay);
+  --m-text-main-size: 16px;
+  --m-text-paragraph-size: 16px;
+  --m-text-button-size: 15px;
+  --m-radius-md: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 卡片只用于「设置分组」类内容；列表内容走平面 + 分隔线 */
+.m-card {
+  border-radius: var(--ck-radius-card) !important;
+  box-shadow: var(--ck-shadow-card);
+  width: 100%;
+  align-self: stretch;
+}
+
+/* HyperOS 的过渡曲线：弹性但克制 */
+.m-button,
+.m-icon-button,
+.m-tab-row__item,
+.m-navigation-bar__item {
+  transition-timing-function: var(--ck-ease-spring);
+  transition-duration: 180ms;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--ck-bg);
+  color: var(--ck-text);
+  font-family: var(--ck-font);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  user-select: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+textarea,
+input {
+  font-family: inherit;
+  user-select: text;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* ===== 共用：空态 / 按钮 / 骨架 =====
+   HyperOS 的空态不用卡片，居中留白 + 图标块 + 一句说明。 */
+.ck-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 72px 40px 40px;
+  text-align: center;
+}
+
+.ck-empty__art {
+  width: 76px;
+  height: 76px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  border-radius: 26px;
+  background: var(--ck-bg-sunken);
+  color: var(--ck-text-tertiary);
+}
+
+.ck-empty__title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ck-text);
+}
+
+.ck-empty__desc {
+  margin: 0;
+  max-width: 270px;
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--ck-text-secondary);
+}
+
+.ck-primary-btn {
+  margin-top: 12px;
+  height: 40px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--ck-blue);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 160ms var(--ck-ease-spring), background-color 160ms linear;
+}
+.ck-primary-btn:hover {
+  background: var(--ck-blue-hover);
+}
+.ck-primary-btn:active {
+  transform: scale(0.96);
+}
+
+.ck-ghost-btn {
+  margin-top: 10px;
+  height: 34px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--ck-bg-sunken);
+  color: var(--ck-text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ck-ghost-btn:hover {
+  background: var(--ck-border);
+}
+
+/* 页面大标题（HyperOS 风格） */
+.ck-page-title {
+  margin: 0;
+  padding: 6px 16px 10px;
+  font-size: var(--ck-title-size);
+  font-weight: var(--ck-title-weight);
+  letter-spacing: -0.02em;
+  color: var(--ck-text);
+}
+
+/* 平面列表分隔线 */
+.ck-divider-bottom {
+  border-bottom: 1px solid var(--ck-divider);
+}
