@@ -1,6 +1,6 @@
 # twitter-miuix
 
-X/Twitter 第三方桌面客户端，HyperOS / miuix 视觉风格。**已接入真实 X 数据**。
+X/Twitter 第三方桌面客户端，HyperOS / miuix 视觉风格。
 
 **技术栈**：Rust + Tauri 2 + Vue 3 + TypeScript + Pinia + [miuix-vue](https://github.com/YuKongA/miuix-vue)
 
@@ -40,27 +40,6 @@ X/Twitter 第三方桌面客户端，HyperOS / miuix 视觉风格。**已接入�
 | 关注 / 取关 | `1.1/friendships/*` | ✅ 用户主页按钮 |
 | 登录态持久化 | Windows DPAPI | ✅ 加密存盘、启动自动恢复 |
 
-### 数据层事实（实测确认）
-
-- 请求形态：`/graphql/{queryId}/{OperationName}`
-- **query 用 GET 或 POST 都可以；mutation 必须用 POST**
-  （GET 调 mutation 会返回 `406 GET requests only allow query operations`）
-- 认证：公开 Bearer + cookie（`auth_token` + `ct0`）
-- `x-csrf-token` 取 cookie 里的 `ct0`
-- **未登录时接口会返回 404，不是 403**。这是最容易误判的地方：
-  之前据此认为「queryId 失效」是错的，实际只是没登录。
-- 309 条 queryId 来自静态提取的注册表（`src-tauri/data/gql_ops.json`），
-  失效时可在设置 → 接口里覆盖。
-
-### 尚未实现
-
-- XChat 新版端到端加密私信（当前用的是旧版 REST DM，不支持加密会话）
-- 群聊管理、消息请求、已读回执
-- 媒体上传（发帖只支持纯文本）
-- 社区、列表管理、书签集合
-- 屏蔽 / 静音、举报、编辑资料、多账号
-- 帖子搜索之外的搜索筛选（用户/位置/时间）
-
 ## 架构
 
 ```
@@ -93,33 +72,6 @@ X_COOKIE="auth_token=...; ct0=..." cargo test -- --ignored --nocapture   # 真�
 ```
 
 Windows 需要 MSVC 链接器（Visual Studio Build Tools）与 Windows SDK。
-
-## 视觉
-
-HyperOS 风格：**平面列表 + 大标题**，不再用「内容塞进卡片」。
-
-- 时间线、详情、通知是平面列表，靠 1px 分隔线与留白组织，不用卡片包裹
-- 页面标题 30px / 700，与 HyperOS 的首页大标题对齐
-- 底栏选中项带柔和胶囊底，图标缩放反馈
-- 空态居中留白 + 圆角图标块，不用卡片
-- 卡片仅用于设置分组这类真正的容器场景
-
-### 字体
-
-`miuix-vue` 本身**不打包任何字体**（样式里全是 `font-family: inherit`），
-也不含 MiSans。本项目用双字体栈：
-
-使用 **MiSans**（小米官方字体，Apache-2.0），即 HyperOS 的系统字体。
-
-来源：<https://hyperos.mi.com/font/> · 许可：Apache License 2.0
-
-按界面实际用到的 573 个字符做了子集，两个字重合计 **117KB**
-（完整 MiSans 单个字重约 10MB）。拉丁与中文统一用 MiSans，观感与 HyperOS 一致。
-
-## 窗口
-
-整个窗口固定为手机竖屏比例 9:19.5（基准 432×936），按屏幕等比缩放。
-Rust 侧显式声明 Per-Monitor V2 DPI 感知，避免高 DPI 下 WebView2 与窗口缩放不一致导致裁切。
 
 ## 关于逆向
 
