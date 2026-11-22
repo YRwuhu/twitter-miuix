@@ -5,7 +5,7 @@
  * 数据全部来自 Rust 侧真实接口；未登录时首页显示登录引导。
  */
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
-import { MiuixText } from 'miuix-vue'
+import { MiuixSwitch, MiuixText } from 'miuix-vue'
 import BottomNav from './components/BottomNav.vue'
 import NotificationsView from './views/NotificationsView.vue'
 import BookmarksView from './views/BookmarksView.vue'
@@ -40,11 +40,18 @@ const me = ref<XUser | null>(null)
 const timeline = useTimelineStore()
 
 /* 设置项 */
-const autoPlay = ref(true)
-const reduceMotion = ref(false)
+const reduceMotion = ref(readReduceMotion())
 const queryIdInput = ref('')
 const queryIdTarget = ref('HomeTimeline')
 const queryIdBusy = ref(false)
+
+function readReduceMotion(): boolean {
+  try {
+    return localStorage.getItem('twitter-miuix.reduce-motion') === 'true'
+  } catch {
+    return false
+  }
+}
 
 const loggedIn = computed(() => auth.value.logged_in)
 const showNav = computed(() => !detailId.value)
@@ -60,22 +67,25 @@ const activePost = computed<XPost | null>(() => {
   return detailMain.value ?? all.find((p) => p.id === detailId.value) ?? null
 })
 const detailMain = ref<XPost | null>(null)
+let detailRequest = 0
 
 /** 打开详情并拉取真实回复。 */
 async function loadDetail(id: string): Promise<void> {
+  const request = ++detailRequest
   detailMain.value = null
   detailReplies.value = []
   detailLoading.value = true
   try {
     const page = await tweetDetail(id)
+    if (request !== detailRequest || detailId.value !== id) return
     if (page.posts.length) {
       detailMain.value = page.posts[0]
       detailReplies.value = page.posts.slice(1)
     }
   } catch (error) {
-    notify(toXApiError(error).message)
+    if (request === detailRequest) notify(toXApiError(error).message)
   } finally {
-    detailLoading.value = false
+    if (request === detailRequest) detailLoading.value = false
   }
 }
 
@@ -228,6 +238,7 @@ async function publish(text: string): Promise<void> {
 }
 
 function changeTab(next: TabKey): void {
+  detailRequest++
   tab.value = next
   detailId.value = null
   overlay.value = null
@@ -252,6 +263,15 @@ function closeOverlay(): void {
 function selectTheme(next: ThemeChoice): void {
   applyTheme(next)
 }
+
+watch(reduceMotion, (enabled) => {
+  document.documentElement.classList.toggle('ck-reduce-motion', enabled)
+  try {
+    localStorage.setItem('twitter-miuix.reduce-motion', String(enabled))
+  } catch {
+    // Keep the preference for this session if storage is unavailable.
+  }
+}, { immediate: true })
 
 async function saveQueryId(): Promise<void> {
   const operation = queryIdTarget.value.trim()
@@ -466,15 +486,8 @@ watch(tab, () => {
               </div>
             </div>
             <div class="ck-settings__row">
-              <span>自动播放视频</span>
-              <button
-                type="button"
-                class="ck-toggle"
-                :class="{ 'is-on': autoPlay }"
-                @click="autoPlay = !autoPlay"
-              >
-                <span />
-              </button>
+              <span>减少动态效果</span>
+              <MiuixSwitch v-model="reduceMotion" aria-label="减少动态效果" />
             </div>
 
             <h3>接口</h3>
@@ -505,7 +518,7 @@ watch(tab, () => {
             </div>
 
             <p class="ck-settings__note">
-              凭据只存在内存，关闭应用即清除。请求均为真实 X GraphQL 调用。
+              登录凭据由 Windows DPAPI 加密保存。请求均为真实 X GraphQL 调用。
             </p>
           </div>
         </div>
@@ -694,36 +707,6 @@ watch(tab, () => {
 }
 .ck-input:focus {
   border-color: var(--ck-blue);
-}
-
-.ck-toggle {
-  width: 42px;
-  height: 24px;
-  flex: none;
-  padding: 0;
-  border: 0;
-  border-radius: 9999px;
-  background: var(--ck-bg-sunken);
-  cursor: pointer;
-  position: relative;
-  transition: background-color 140ms linear;
-}
-.ck-toggle span {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 18px;
-  height: 18px;
-  border-radius: 9999px;
-  background: var(--ck-card);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: transform 160ms cubic-bezier(0.2, 0, 0, 1);
-}
-.ck-toggle.is-on {
-  background: var(--ck-blue);
-}
-.ck-toggle.is-on span {
-  transform: translateX(18px);
 }
 
 .ck-settings__note {

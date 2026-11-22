@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /** 私信：会话列表 + 单聊消息。 */
-import { nextTick, onMounted, ref } from 'vue'
+import { nextTick, onUnmounted, ref, watch } from 'vue'
 import { MiuixCard, MiuixText } from 'miuix-vue'
 import AppIcon from '../components/AppIcon.vue'
 import AvatarBadge from '../components/AvatarBadge.vue'
@@ -22,6 +22,8 @@ const msgError = ref('')
 const draft = ref('')
 const sending = ref(false)
 const scroller = ref<HTMLElement | null>(null)
+let conversationRequest = 0
+let messageRequest = 0
 
 function title(c: DmConversation): string {
   if (!c.participants.length) return '私信会话'
@@ -34,20 +36,25 @@ function avatar(c: DmConversation): XUser | null {
 
 async function load(): Promise<void> {
   if (!props.loggedIn || !props.me?.id) return
+  const request = ++conversationRequest
   loading.value = true
   error.value = ''
   try {
     conversations.value = await dmConversations(props.me.id)
+    if (request !== conversationRequest) return
     loaded.value = true
   } catch (e) {
+    if (request !== conversationRequest) return
     const err = toXApiError(e)
     error.value = err.kind === 'unauthorized' ? '需要登录 X 账号' : err.message
   } finally {
-    loading.value = false
+    if (request === conversationRequest) loading.value = false
   }
 }
 
 async function open(c: DmConversation): Promise<void> {
+  const request = ++messageRequest
+  sending.value = false
   active.value = c
   messages.value = []
   msgError.value = ''
@@ -55,15 +62,18 @@ async function open(c: DmConversation): Promise<void> {
   msgLoading.value = true
   try {
     messages.value = await dmMessages(c.id, props.me.id)
+    if (request !== messageRequest) return
     await scrollBottom()
   } catch (e) {
-    msgError.value = toXApiError(e).message
+    if (request === messageRequest) msgError.value = toXApiError(e).message
   } finally {
-    msgLoading.value = false
+    if (request === messageRequest) msgLoading.value = false
   }
 }
 
 function back(): void {
+  messageRequest++
+  sending.value = false
   active.value = null
   messages.value = []
   draft.value = ''
@@ -72,16 +82,21 @@ function back(): void {
 async function send(): Promise<void> {
   const text = draft.value.trim()
   if (!text || !active.value || sending.value || !props.me?.id) return
+  const conversationId = active.value.id
+  const userId = props.me.id
+  const request = ++messageRequest
   sending.value = true
   try {
-    await dmSend(active.value.id, text)
+    await dmSend(conversationId, text)
+    if (request !== messageRequest || active.value?.id !== conversationId) return
     draft.value = ''
-    messages.value = await dmMessages(active.value.id, props.me.id)
+    messages.value = await dmMessages(conversationId, userId)
+    if (request !== messageRequest || active.value?.id !== conversationId) return
     await scrollBottom()
   } catch (e) {
-    msgError.value = toXApiError(e).message
+    if (request === messageRequest) msgError.value = toXApiError(e).message
   } finally {
-    sending.value = false
+    if (request === messageRequest) sending.value = false
   }
 }
 
@@ -90,7 +105,23 @@ async function scrollBottom(): Promise<void> {
   if (scroller.value) scroller.value.scrollTop = scroller.value.scrollHeight
 }
 
-onMounted(() => void load())
+watch(() => [props.loggedIn, props.me?.id] as const, ([loggedIn, id]) => {
+  conversationRequest++
+  messageRequest++
+  sending.value = false
+  active.value = null
+  messages.value = []
+  conversations.value = []
+  loaded.value = false
+  error.value = ''
+  if (loggedIn && id) void load()
+  else loading.value = false
+}, { immediate: true })
+
+onUnmounted(() => {
+  conversationRequest++
+  messageRequest++
+})
 </script>
 
 <template>

@@ -134,6 +134,15 @@ html[data-theme='black'] {
   box-sizing: border-box;
 }
 
+html.ck-reduce-motion *,
+html.ck-reduce-motion *::before,
+html.ck-reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+}
+
 /* 卡片只用于「设置分组」类内容；列表内容走平面 + 分隔线 */
 .m-card {
   border-radius: var(--ck-radius-card) !important;

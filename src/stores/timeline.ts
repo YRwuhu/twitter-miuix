@@ -36,6 +36,7 @@ export const useTimelineStore = defineStore('timeline', () => {
   const forYou = reactive<TimelineState>(emptyState())
   const following = reactive<TimelineState>(emptyState())
   const active = ref<TimelineKind>('forYou')
+  const requestVersion: Record<TimelineKind, number> = { forYou: 0, following: 0 }
 
   const state = computed(() => (active.value === 'forYou' ? forYou : following))
 
@@ -49,19 +50,22 @@ export const useTimelineStore = defineStore('timeline', () => {
     if (s.loading) return
     if (s.loadedOnce && !force) return
 
+    const version = ++requestVersion[kind]
     s.loading = true
     s.error = null
     try {
       const page = await homeTimeline(kind, null)
+      if (version !== requestVersion[kind]) return
       s.posts = dedupe(page.posts)
       s.bottomCursor = page.bottomCursor ?? null
       s.done = !page.bottomCursor
       s.loadedOnce = true
     } catch (error) {
+      if (version !== requestVersion[kind]) return
       const e = toXApiError(error)
       s.error = describeError(e.kind, e.message)
     } finally {
-      s.loading = false
+      if (version === requestVersion[kind]) s.loading = false
     }
   }
 
@@ -74,24 +78,30 @@ export const useTimelineStore = defineStore('timeline', () => {
       return
     }
 
+    const version = requestVersion[kind]
     s.loadingMore = true
     s.error = null
     try {
       const page = await homeTimeline(kind, s.bottomCursor)
+      if (version !== requestVersion[kind]) return
       s.posts = dedupe([...s.posts, ...page.posts])
       s.bottomCursor = page.bottomCursor ?? null
       s.done = !page.bottomCursor || page.posts.length === 0
     } catch (error) {
+      if (version !== requestVersion[kind]) return
       const e = toXApiError(error)
       s.error = describeError(e.kind, e.message)
     } finally {
-      s.loadingMore = false
+      if (version === requestVersion[kind]) s.loadingMore = false
     }
   }
 
   /** 下拉刷新：清空后重拉。 */
   async function refresh(kind: TimelineKind): Promise<void> {
     const s = target(kind)
+    requestVersion[kind]++
+    s.loading = false
+    s.loadingMore = false
     s.posts = []
     s.bottomCursor = null
     s.done = false
@@ -124,6 +134,8 @@ export const useTimelineStore = defineStore('timeline', () => {
   }
 
   function reset(): void {
+    requestVersion.forYou++
+    requestVersion.following++
     Object.assign(forYou, emptyState())
     Object.assign(following, emptyState())
   }
