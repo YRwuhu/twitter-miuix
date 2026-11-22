@@ -1,20 +1,28 @@
 <script setup lang="ts">
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import { MiuixBottomSheet, MiuixButton, MiuixText } from 'miuix-vue'
 import AppIcon from './AppIcon.vue'
 import AvatarBadge from './AvatarBadge.vue'
+import { createTweet, toXApiError, uploadPhoto } from '../api/x'
 
-const props = defineProps<{ modelValue: boolean; replyTo?: string }>()
+const props = defineProps<{ modelValue: boolean; replyTo?: string; replyToId?: string }>()
 const emit = defineEmits<{ 'update:modelValue': [value: boolean]; publish: [text: string] }>()
 
 const MAX = 280
+const MAX_MEDIA = 4
+const MAX_MEDIA_BYTES = 5 * 1024 * 1024
+const ACCEPTED_TYPES = new Set(['image/jpeg', 'image/png', 'image/gif'])
 const text = ref('')
 const textarea = ref<HTMLTextAreaElement | null>(null)
+const fileInput = ref<HTMLInputElement | null>(null)
+const media = ref<{ file: File; url: string; mediaId?: string }[]>([])
+const uploading = ref(false)
+const uploadError = ref('')
 const composing = ref(false)
 
 const remaining = computed(() => MAX - text.value.length)
 const overLimit = computed(() => remaining.value < 0)
-const canPublish = computed(() => text.value.trim().length > 0 && !overLimit.value)
+const canPublish = computed(() => (text.value.trim().length > 0 || media.value.length > 0) && !overLimit.value && !uploading.value)
 const progress = computed(() => Math.min(text.value.length / MAX, 1))
 const circumference = 2 * Math.PI * 9.5
 
@@ -31,16 +39,63 @@ watch(
       textarea.value?.focus()
     } else {
       text.value = ''
+      clearMedia()
+      uploadError.value = ''
     }
   },
 )
 
-function publish(): void {
-  if (!canPublish.value) return
-  emit('publish', text.value.trim())
-  emit('update:modelValue', false)
-  text.value = ''
+function selectPhotos(event: Event): void {
+  const input = event.target as HTMLInputElement
+  const files = Array.from(input.files ?? [])
+  input.value = ''
+  uploadError.value = ''
+  const available = MAX_MEDIA - media.value.length
+  if (files.length > available) uploadError.value = `最多添加 ${MAX_MEDIA} 张图片`
+  for (const file of files.slice(0, available)) {
+    if (!ACCEPTED_TYPES.has(file.type)) {
+      uploadError.value = '仅支持 JPEG、PNG 和 GIF 图片'
+      continue
+    }
+    if (!file.size || file.size > MAX_MEDIA_BYTES) {
+      uploadError.value = '每张图片不能超过 5 MiB'
+      continue
+    }
+    media.value.push({ file, url: URL.createObjectURL(file) })
+  }
 }
+
+function removePhoto(index: number): void {
+  const [removed] = media.value.splice(index, 1)
+  if (removed) URL.revokeObjectURL(removed.url)
+}
+
+function clearMedia(): void {
+  for (const item of media.value) URL.revokeObjectURL(item.url)
+  media.value = []
+}
+
+async function publish(): Promise<void> {
+  if (!canPublish.value) return
+  uploading.value = true
+  uploadError.value = ''
+  try {
+    for (const item of media.value) {
+      if (!item.mediaId) item.mediaId = await uploadPhoto(item.file)
+    }
+    await createTweet(text.value.trim(), props.replyToId, media.value.map((item) => item.mediaId!))
+    emit('publish', text.value.trim())
+    emit('update:modelValue', false)
+    text.value = ''
+    clearMedia()
+  } catch (error) {
+    uploadError.value = toXApiError(error).message
+  } finally {
+    uploading.value = false
+  }
+}
+
+onBeforeUnmount(clearMedia)
 
 function onInput(): void {
   if (!composing.value && text.value.length > MAX) {
@@ -60,7 +115,7 @@ function onInput(): void {
     </template>
     <template #end-action>
       <MiuixButton type="primary" :disabled="!canPublish" class="ck-compose__publish" @click="publish">
-        发布
+        {{ uploading ? '上传中…' : '发布' }}
       </MiuixButton>
     </template>
 
@@ -81,19 +136,28 @@ function onInput(): void {
         />
       </div>
 
-      <button type="button" class="ck-compose__audience">
+      <div v-if="media.length" class="ck-compose__media">
+        <div v-for="(item, index) in media" :key="item.url" class="ck-compose__media-item">
+          <img :src="item.url" :alt="item.file.name" />
+          <button type="button" :aria-label="`移除图片 ${index + 1}`" @click="removePhoto(index)">
+            <AppIcon name="close" :size="14" />
+          </button>
+        </div>
+      </div>
+
+      <span class="ck-compose__audience">
         <AppIcon name="globe" :size="14" />
         <span>所有人可回复</span>
-      </button>
+      </span>
+
+      <p v-if="uploadError" class="ck-compose__error" role="alert">{{ uploadError }}</p>
 
       <footer class="ck-compose__toolbar">
         <div class="ck-compose__tools">
-          <button type="button" class="ck-compose__tool" aria-label="添加图片">
+          <button type="button" class="ck-compose__tool" aria-label="添加图片" :disabled="media.length >= MAX_MEDIA || uploading" @click="fileInput?.click()">
             <AppIcon name="image" :size="20" />
           </button>
-          <button type="button" class="ck-compose__tool" aria-label="添加位置">
-            <AppIcon name="globe" :size="19" />
-          </button>
+          <input ref="fileInput" class="ck-compose__file-input" type="file" accept="image/jpeg,image/png,image/gif" multiple @change="selectPhotos" />
         </div>
 
         <div
@@ -182,7 +246,53 @@ function onInput(): void {
   color: var(--ck-blue);
   font-size: 11px;
   font-weight: 700;
+}
+
+.ck-compose__media {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 0 54px;
+  overflow-x: auto;
+}
+.ck-compose__media-item {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  flex: none;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--ck-bg-sunken);
+}
+.ck-compose__media-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ck-compose__media-item button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.72);
+  color: white;
   cursor: pointer;
+}
+.ck-compose__file-input {
+  display: none;
+}
+.ck-compose__error {
+  margin: 8px 0 0 54px;
+  color: var(--ck-red);
+  font-size: 12px;
+}
+.ck-compose__tool:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .ck-compose__toolbar {

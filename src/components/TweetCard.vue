@@ -5,17 +5,20 @@ import AvatarBadge from './AvatarBadge.vue'
 import MediaGrid from './MediaGrid.vue'
 import VerifiedBadge from './VerifiedBadge.vue'
 import { compactCount, relativeTime, type XPost } from '../types'
+import { copyText } from '../clipboard'
 
 const props = defineProps<{ post: XPost }>()
 const emit = defineEmits<{
-  like: [id: string]
-  repost: [id: string]
-  bookmark: [id: string]
+  like: [post: XPost]
+  repost: [post: XPost]
+  bookmark: [post: XPost]
   reply: [id: string]
   open: [id: string]
 }>()
 
 const menuOpen = ref(false)
+const linkCopied = ref(false)
+let copyTimer: ReturnType<typeof setTimeout> | null = null
 
 /** 转推时展示原帖作者与内容。 */
 const display = computed<XPost>(() => props.post.reposted ?? props.post)
@@ -24,6 +27,15 @@ const isRepost = computed(() => !!props.post.reposted)
 const likeLabel = computed(() => compactCount(display.value.metrics.like))
 const repostLabel = computed(() => compactCount(display.value.metrics.repost))
 const replyLabel = computed(() => compactCount(display.value.metrics.reply))
+
+async function copyPostLink(): Promise<void> {
+  const url = `https://x.com/${display.value.author.handle}/status/${display.value.id}`
+  await copyText(url)
+  linkCopied.value = true
+  if (copyTimer) clearTimeout(copyTimer)
+  copyTimer = setTimeout(() => (linkCopied.value = false), 1800)
+  menuOpen.value = false
+}
 </script>
 
 <template>
@@ -41,6 +53,7 @@ const replyLabel = computed(() => compactCount(display.value.metrics.reply))
       />
 
       <div class="ck-post__body">
+        <span v-if="linkCopied" class="ck-post__copied" role="status">链接已复制</span>
         <header class="ck-post__head">
           <span class="ck-post__name">{{ display.author.name }}</span>
           <VerifiedBadge :verified="display.author.verified" :size="14" />
@@ -96,7 +109,7 @@ const replyLabel = computed(() => compactCount(display.value.metrics.reply))
             :class="{ 'is-active': display.isReposted }"
             type="button"
             aria-label="转推"
-            @click.stop="emit('repost', post.id)"
+            @click.stop="emit('repost', post)"
           >
             <span class="ck-action__icon"><AppIcon name="repost" :size="17" /></span>
             <span class="ck-action__count">{{ repostLabel }}</span>
@@ -107,7 +120,7 @@ const replyLabel = computed(() => compactCount(display.value.metrics.reply))
             :class="{ 'is-active': display.isLiked }"
             type="button"
             aria-label="喜欢"
-            @click.stop="emit('like', post.id)"
+            @click.stop="emit('like', post)"
           >
             <span class="ck-action__icon">
               <AppIcon name="heart" :size="17" :filled="display.isLiked" />
@@ -120,23 +133,21 @@ const replyLabel = computed(() => compactCount(display.value.metrics.reply))
             :class="{ 'is-active': display.isBookmarked }"
             type="button"
             aria-label="书签"
-            @click.stop="emit('bookmark', post.id)"
+            @click.stop="emit('bookmark', post)"
           >
             <span class="ck-action__icon">
               <AppIcon name="bookmark" :size="16" :filled="display.isBookmarked" />
             </span>
           </button>
 
-          <button class="ck-action" type="button" aria-label="分享" @click.stop>
+          <button class="ck-action" type="button" aria-label="复制帖子链接" @click.stop="copyPostLink">
             <span class="ck-action__icon"><AppIcon name="share" :size="16" /></span>
           </button>
         </footer>
 
         <Transition name="ck-menu">
           <div v-if="menuOpen" class="ck-post__menu" @click.stop>
-            <button type="button" @click="menuOpen = false">复制帖子链接</button>
-            <button type="button" @click="menuOpen = false">不感兴趣</button>
-            <button type="button" @click="menuOpen = false">举报帖子</button>
+            <button type="button" @click="copyPostLink">复制帖子链接</button>
           </div>
         </Transition>
       </div>
@@ -359,6 +370,17 @@ const replyLabel = computed(() => compactCount(display.value.metrics.reply))
   border-radius: 16px;
   background: var(--ck-bg-elevated);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+}
+.ck-post__copied {
+  position: absolute;
+  top: 7px;
+  right: 14px;
+  z-index: 7;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--ck-text);
+  color: var(--ck-bg);
+  font-size: 11px;
 }
 .ck-post__menu button {
   display: block;

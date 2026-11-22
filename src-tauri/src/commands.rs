@@ -90,10 +90,7 @@ pub async fn x_auth_status(state: State<'_, AppState>) -> Result<AuthStatus, Str
 
 /// 用 cookie 登录，并**立即验证** cookie 是否有效。
 #[tauri::command]
-pub async fn x_login(
-    state: State<'_, AppState>,
-    cookie: String,
-) -> Result<AuthStatus, String> {
+pub async fn x_login(state: State<'_, AppState>, cookie: String) -> Result<AuthStatus, String> {
     let cookie = cookie.trim().to_string();
     if !cookie.contains("auth_token=") || !cookie.contains("ct0=") {
         return Err(to_js_error(XError::new(
@@ -153,7 +150,13 @@ async fn current_user(state: &AppState) -> Result<XUser, String> {
     let query_id = state.resolve("ViewerUserQuery")?;
     let data = state
         .client
-        .graphql(&auth, &query_id, "ViewerUserQuery", json!({}), Some(json!({})))
+        .graphql(
+            &auth,
+            &query_id,
+            "ViewerUserQuery",
+            json!({}),
+            Some(json!({})),
+        )
         .await
         .map_err(to_js_error)?;
 
@@ -328,10 +331,7 @@ pub async fn x_home_timeline(
 
 /// 公开趋势（游客可用）。
 #[tauri::command]
-pub async fn x_trends(
-    state: State<'_, AppState>,
-    woeid: Option<u64>,
-) -> Result<Value, String> {
+pub async fn x_trends(state: State<'_, AppState>, woeid: Option<u64>) -> Result<Value, String> {
     let auth = state.auth_snapshot()?;
     let auth = if auth.is_logged_in() || auth.guest_token.is_some() {
         auth
@@ -358,7 +358,11 @@ pub async fn x_user_by_screen_name(
 ) -> Result<XUser, String> {
     let auth = state.auth_snapshot()?;
     if !auth.is_logged_in() && auth.guest_token.is_none() {
-        return Err(to_js_error(XError::new(0, "需要登录或游客身份", "unauthorized")));
+        return Err(to_js_error(XError::new(
+            0,
+            "需要登录或游客身份",
+            "unauthorized",
+        )));
     }
     let query_id = state.resolve("UserByScreenName")?;
     let data = state
@@ -379,10 +383,18 @@ pub async fn x_user_by_screen_name(
 
 /// 点赞 / 取消点赞。
 #[tauri::command]
-pub async fn x_favorite(state: State<'_, AppState>, tweet_id: String, on: bool) -> Result<Value, String> {
+pub async fn x_favorite(
+    state: State<'_, AppState>,
+    tweet_id: String,
+    on: bool,
+) -> Result<Value, String> {
     let auth = state.auth_snapshot()?;
     require_login(&auth)?;
-    let operation = if on { "FavoriteTweet" } else { "UnfavoriteTweet" };
+    let operation = if on {
+        "FavoriteTweet"
+    } else {
+        "UnfavoriteTweet"
+    };
     let query_id = state.resolve(operation)?;
     state
         .client
@@ -399,7 +411,11 @@ pub async fn x_favorite(state: State<'_, AppState>, tweet_id: String, on: bool) 
 
 /// 转推 / 取消转推。
 #[tauri::command]
-pub async fn x_retweet(state: State<'_, AppState>, tweet_id: String, on: bool) -> Result<Value, String> {
+pub async fn x_retweet(
+    state: State<'_, AppState>,
+    tweet_id: String,
+    on: bool,
+) -> Result<Value, String> {
     let auth = state.auth_snapshot()?;
     require_login(&auth)?;
     let operation = if on { "CreateRetweet" } else { "DeleteRetweet" };
@@ -419,7 +435,11 @@ pub async fn x_retweet(state: State<'_, AppState>, tweet_id: String, on: bool) -
 
 /// 加入 / 移出书签。
 #[tauri::command]
-pub async fn x_bookmark(state: State<'_, AppState>, tweet_id: String, on: bool) -> Result<Value, String> {
+pub async fn x_bookmark(
+    state: State<'_, AppState>,
+    tweet_id: String,
+    on: bool,
+) -> Result<Value, String> {
     let auth = state.auth_snapshot()?;
     require_login(&auth)?;
     let operation = if on { "BookmarkAdd" } else { "BookmarkDelete" };
@@ -437,21 +457,68 @@ pub async fn x_bookmark(state: State<'_, AppState>, tweet_id: String, on: bool) 
         .map_err(to_js_error)
 }
 
+#[tauri::command]
+pub async fn x_upload_photo(
+    state: State<'_, AppState>,
+    media_base64: String,
+    media_type: String,
+) -> Result<String, String> {
+    let auth = state.auth_snapshot()?;
+    require_login(&auth)?;
+    if media_base64.len() > 7 * 1024 * 1024 {
+        return Err(to_js_error(XError::new(
+            0,
+            "图片大小不能超过 5 MiB",
+            "bad_variables",
+        )));
+    }
+    let bytes = base64::Engine::decode(&base64::engine::general_purpose::STANDARD, media_base64)
+        .map_err(|_| to_js_error(XError::new(0, "图片数据无效", "bad_variables")))?;
+    validate_photo(&media_type, &bytes)?;
+    state
+        .client
+        .upload_photo(&auth, &bytes, &media_type)
+        .await
+        .map_err(to_js_error)
+}
+
+fn validate_photo(media_type: &str, bytes: &[u8]) -> Result<(), String> {
+    let valid = match media_type {
+        "image/jpeg" => bytes.starts_with(&[0xff, 0xd8, 0xff]),
+        "image/png" => bytes.starts_with(b"\x89PNG\r\n\x1a\n"),
+        "image/gif" => bytes.starts_with(b"GIF87a") || bytes.starts_with(b"GIF89a"),
+        _ => false,
+    };
+    if bytes.is_empty() || bytes.len() > 5 * 1024 * 1024 || !valid {
+        return Err(to_js_error(XError::new(
+            0,
+            "图片格式无效，或大小超过 5 MiB",
+            "bad_variables",
+        )));
+    }
+    Ok(())
+}
+
 /// 发布帖子或回复。
 #[tauri::command]
 pub async fn x_create_tweet(
     state: State<'_, AppState>,
     text: String,
     reply_to: Option<String>,
+    media_ids: Option<Vec<String>>,
 ) -> Result<Value, String> {
     let auth = state.auth_snapshot()?;
     require_login(&auth)?;
-    if text.trim().is_empty() {
+    let media_ids = media_ids.unwrap_or_default();
+    if text.trim().is_empty() && media_ids.is_empty() {
         return Err(to_js_error(XError::new(0, "内容不能为空", "bad_variables")));
     }
     let mut variables = json!({
         "tweet_text": text,
-        "media": { "media_entities": [], "possibly_sensitive": false },
+        "media": {
+            "media_entities": media_ids.into_iter().map(|media_id| json!({ "media_id": media_id, "tagged_users": [] })).collect::<Vec<_>>(),
+            "possibly_sensitive": false
+        },
         "semantic_annotation_ids": [],
         "dark_request": false,
     });
@@ -461,13 +528,7 @@ pub async fn x_create_tweet(
     let query_id = state.resolve("CreateTweet")?;
     state
         .client
-        .graphql_post(
-            &auth,
-            &query_id,
-            "CreateTweet",
-            variables,
-            Some(json!({})),
-        )
+        .graphql_post(&auth, &query_id, "CreateTweet", variables, Some(json!({})))
         .await
         .map_err(to_js_error)
 }
@@ -557,7 +618,13 @@ pub async fn x_bookmarks(
     let query_id = state.resolve("BookmarksTimelineQuery")?;
     let data = state
         .client
-        .timeline(&auth, &query_id, "BookmarksTimelineQuery", variables, home_features())
+        .timeline(
+            &auth,
+            &query_id,
+            "BookmarksTimelineQuery",
+            variables,
+            home_features(),
+        )
         .await
         .map_err(to_js_error)?;
     Ok(models::parse_timeline(&data))
@@ -586,7 +653,13 @@ pub async fn x_search_timeline(
     let query_id = state.resolve("SearchTimeline")?;
     let data = state
         .client
-        .timeline(&auth, &query_id, "SearchTimeline", variables, home_features())
+        .timeline(
+            &auth,
+            &query_id,
+            "SearchTimeline",
+            variables,
+            home_features(),
+        )
         .await
         .map_err(to_js_error)?;
     Ok(models::parse_timeline(&data))
@@ -716,10 +789,16 @@ pub async fn x_dm_send(
             &[
                 ("conversation_id", conversation_id),
                 ("text", text),
-                ("request_id", format!("{}", std::time::SystemTime::now()
-                    .duration_since(std::time::UNIX_EPOCH)
-                    .map(|d| d.as_millis())
-                    .unwrap_or(0))),
+                (
+                    "request_id",
+                    format!(
+                        "{}",
+                        std::time::SystemTime::now()
+                            .duration_since(std::time::UNIX_EPOCH)
+                            .map(|d| d.as_millis())
+                            .unwrap_or(0)
+                    ),
+                ),
             ],
         )
         .await
@@ -784,5 +863,14 @@ mod tests {
             guest_token: None,
         };
         assert!(require_login(&auth).is_ok());
+    }
+
+    #[test]
+    fn validates_supported_photo_signatures() {
+        assert!(validate_photo("image/jpeg", &[0xff, 0xd8, 0xff, 0]).is_ok());
+        assert!(validate_photo("image/png", b"\x89PNG\r\n\x1a\n").is_ok());
+        assert!(validate_photo("image/gif", b"GIF89a").is_ok());
+        assert!(validate_photo("image/png", b"not an image").is_err());
+        assert!(validate_photo("image/webp", b"RIFF").is_err());
     }
 }

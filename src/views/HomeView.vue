@@ -5,13 +5,13 @@ import AppIcon from '../components/AppIcon.vue'
 import AvatarBadge from '../components/AvatarBadge.vue'
 import TweetCard from '../components/TweetCard.vue'
 import { useTimelineStore } from '../stores/timeline'
-import type { XUser } from '../types'
+import type { XPost, XUser } from '../types'
 
 const props = defineProps<{ me?: XUser | null; loggedIn: boolean }>()
 const emit = defineEmits<{
-  like: [id: string]
-  repost: [id: string]
-  bookmark: [id: string]
+  like: [post: XPost]
+  repost: [post: XPost]
+  bookmark: [post: XPost]
   reply: [id: string]
   open: [id: string]
   compose: []

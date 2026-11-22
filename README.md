@@ -6,7 +6,7 @@ X/Twitter 第三方桌面客户端，HyperOS / miuix 视觉风格。
 
 ## 快速开始
 
-1. 安装 `twitter-miuix_0.1.0_x64-setup.exe`
+1. 安装 `twitter-miuix_0.1.1_x64-setup.exe`
 2. 打开应用 → 点「登录 X」
 3. 粘贴 cookie：浏览器登录 x.com → F12 → Application → Cookies → `https://x.com`
    → 复制 `auth_token` 和 `ct0` 的值，拼成 `auth_token=...; ct0=...`
@@ -39,6 +39,7 @@ X/Twitter 第三方桌面客户端，HyperOS / miuix 视觉风格。
 | 发送私信 | `1.1/dm/chat/send.json` | ✅ |
 | 关注 / 取关 | `1.1/friendships/*` | ✅ 用户主页按钮 |
 | 登录态持久化 | Windows DPAPI | ✅ 加密存盘、启动自动恢复 |
+| 帖子图片上传 | X `media/upload.json` 分段上传 + `CreateTweet` | ✅ JPEG / PNG / GIF，最多 4 张，每张 5 MiB |
 
 ## 架构
 
@@ -55,7 +56,7 @@ Rust (src-tauri)
 ├─ dm.rs          私信（REST）解析
 ├─ secrets.rs     Windows DPAPI 凭据加密
 ├─ query_ids.rs   309 条 queryId 注册表（含覆盖机制）
-└─ commands.rs    Tauri 命令（25 个）
+└─ commands.rs    Tauri 命令（26 个）
 ```
 
 ## 开发

@@ -13,9 +13,9 @@ const props = defineProps<{ user: XUser | null }>()
 const emit = defineEmits<{
   back: []
   open: [id: string]
-  like: [id: string]
-  repost: [id: string]
-  bookmark: [id: string]
+  like: [post: XPost]
+  repost: [post: XPost]
+  bookmark: [post: XPost]
   reply: [id: string]
 }>()
 

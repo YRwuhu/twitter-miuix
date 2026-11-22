@@ -10,9 +10,10 @@ import type { XPost } from '../types'
 const props = defineProps<{ loggedIn: boolean }>()
 const emit = defineEmits<{
   open: [id: string]
-  like: [id: string]
-  repost: [id: string]
-  bookmark: [id: string]
+  back: []
+  like: [post: XPost]
+  repost: [post: XPost]
+  bookmark: [post: XPost]
   reply: [id: string]
   login: []
 }>()
@@ -81,7 +82,7 @@ onUnmounted(() => observer?.disconnect())
 <template>
   <div class="ck-bm">
     <header class="ck-bm__head">
-      <button type="button" class="ck-bm__back" aria-label="返回" @click="$emit('open', '')">
+      <button type="button" class="ck-bm__back" aria-label="返回" @click="emit('back')">
         <AppIcon name="arrowLeft" :size="20" />
       </button>
       <MiuixText type="title3" weight="medium" class="ck-bm__title">书签</MiuixText>

@@ -121,9 +121,13 @@ export const useTimelineStore = defineStore('timeline', () => {
   /** 本地更新已加载帖子的状态（点赞/转推/书签后同步）。 */
   function patchPost(id: string, patch: Partial<XPost>): void {
     for (const s of [forYou, following]) {
-      const index = s.posts.findIndex((p) => p.id === id)
-      if (index >= 0) {
-        s.posts[index] = { ...s.posts[index], ...patch }
+      for (let index = 0; index < s.posts.length; index++) {
+        const post = s.posts[index]
+        if (post.id === id) {
+          s.posts[index] = { ...post, ...patch }
+        } else if (post.reposted?.id === id) {
+          s.posts[index] = { ...post, reposted: { ...post.reposted, ...patch } }
+        }
       }
     }
   }

@@ -17,7 +17,7 @@ import ExploreView from './views/ExploreView.vue'
 import HomeView from './views/HomeView.vue'
 import MessagesView from './views/MessagesView.vue'
 import ProfileView from './views/ProfileView.vue'
-import { authStatus, restoreSession, favorite, retweet, bookmark as apiBookmark, createTweet, logout as apiLogout, setQueryId, toXApiError, tweetDetail } from './api/x'
+import { authStatus, restoreSession, favorite, retweet, bookmark as apiBookmark, logout as apiLogout, setQueryId, toXApiError, tweetDetail } from './api/x'
 import type { AuthStatus } from './api/x'
 import { useTimelineStore } from './stores/timeline'
 import { applyTheme, theme } from './theme'
@@ -134,72 +134,65 @@ async function doLogout(): Promise<void> {
 /**
  * 互动走真实 GraphQL。乐观更新先落地，失败再回滚。
  */
-async function toggleLike(id: string): Promise<void> {
-  const post = findPost(id)
-  if (!post) return
+async function toggleLike(post: XPost): Promise<void> {
   const target = post.reposted ?? post
   const next = !target.isLiked
+  const previousMetrics = target.metrics
 
-  timeline.patchPost(id, {
-    isLiked: next,
-    metrics: { ...target.metrics, like: target.metrics.like + (next ? 1 : -1) },
-  })
+  target.isLiked = next
+  target.metrics = { ...previousMetrics, like: Math.max(0, previousMetrics.like + (next ? 1 : -1)) }
+  timeline.patchPost(target.id, { isLiked: next, metrics: target.metrics })
 
   try {
     await favorite(target.id, next)
   } catch (error) {
-    // 回滚
-    timeline.patchPost(id, {
-      isLiked: !next,
-      metrics: { ...target.metrics, like: target.metrics.like },
-    })
+    target.isLiked = !next
+    target.metrics = previousMetrics
+    timeline.patchPost(target.id, { isLiked: !next, metrics: previousMetrics })
     notify(toXApiError(error).message)
   }
 }
 
-async function toggleRepost(id: string): Promise<void> {
-  const post = findPost(id)
-  if (!post) return
+async function toggleRepost(post: XPost): Promise<void> {
   const target = post.reposted ?? post
   const next = !target.isReposted
+  const previousMetrics = target.metrics
 
-  timeline.patchPost(id, {
-    isReposted: next,
-    metrics: { ...target.metrics, repost: target.metrics.repost + (next ? 1 : -1) },
-  })
+  target.isReposted = next
+  target.metrics = { ...previousMetrics, repost: Math.max(0, previousMetrics.repost + (next ? 1 : -1)) }
+  timeline.patchPost(target.id, { isReposted: next, metrics: target.metrics })
 
   try {
     await retweet(target.id, next)
     notify(next ? '已转推' : '已撤销转推')
   } catch (error) {
-    timeline.patchPost(id, {
-      isReposted: !next,
-      metrics: { ...target.metrics, repost: target.metrics.repost },
-    })
+    target.isReposted = !next
+    target.metrics = previousMetrics
+    timeline.patchPost(target.id, { isReposted: !next, metrics: previousMetrics })
     notify(toXApiError(error).message)
   }
 }
 
-async function toggleBookmark(id: string): Promise<void> {
-  const post = findPost(id)
-  if (!post) return
+async function toggleBookmark(post: XPost): Promise<void> {
   const target = post.reposted ?? post
   const next = !target.isBookmarked
 
-  timeline.patchPost(id, { isBookmarked: next })
+  target.isBookmarked = next
+  timeline.patchPost(target.id, { isBookmarked: next })
 
   try {
     await apiBookmark(target.id, next)
     notify(next ? '已加入书签' : '已从书签移除')
   } catch (error) {
-    timeline.patchPost(id, { isBookmarked: !next })
+    target.isBookmarked = !next
+    timeline.patchPost(target.id, { isBookmarked: !next })
     notify(toXApiError(error).message)
   }
 }
 
 function findPost(id: string): XPost | null {
   const all = [...timeline.forYou.posts, ...timeline.following.posts]
-  return all.find((p) => p.id === id) ?? null
+  return all.find((post) => post.id === id) ?? null
 }
 
 /* ---------------- 导航 ---------------- */
@@ -224,17 +217,11 @@ function openCompose(replyToId?: string): void {
   composeOpen.value = true
 }
 
-async function publish(text: string): Promise<void> {
-  try {
-    await createTweet(text, replyTarget.value?.id ?? null)
-    notify(replyTarget.value ? '回复已发送' : '帖子已发布')
-    replyTarget.value = null
-    // 发布后刷新时间线，让新帖出现在正确位置
-    await timeline.refresh('following')
-    tab.value = 'home'
-  } catch (error) {
-    notify(toXApiError(error).message)
-  }
+async function publish(_text: string): Promise<void> {
+  notify(replyTarget.value ? '回复已发送' : '帖子已发布')
+  replyTarget.value = null
+  await timeline.refresh('following')
+  tab.value = 'home'
 }
 
 function changeTab(next: TabKey): void {
@@ -332,6 +319,7 @@ watch(tab, () => {
           key="bookmarks"
           :logged-in="loggedIn"
           @open="openDetail"
+          @back="closeOverlay"
           @like="toggleLike"
           @repost="toggleRepost"
           @bookmark="toggleBookmark"
@@ -431,6 +419,7 @@ watch(tab, () => {
     <ComposeSheet
       v-model="composeOpen"
       :reply-to="replyTarget ? `@${replyTarget.handle}` : undefined"
+      :reply-to-id="replyTarget?.id"
       @publish="publish"
     />
 

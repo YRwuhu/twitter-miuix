@@ -7,6 +7,7 @@ import VerifiedBadge from '../components/VerifiedBadge.vue'
 import MediaGrid from '../components/MediaGrid.vue'
 import TweetCard from '../components/TweetCard.vue'
 import { compactCount, relativeTime, type XPost } from '../types'
+import { copyText } from '../clipboard'
 
 const props = defineProps<{
   post: XPost | null
@@ -15,9 +16,9 @@ const props = defineProps<{
 }>()
 const emit = defineEmits<{
   back: []
-  like: [id: string]
-  repost: [id: string]
-  bookmark: [id: string]
+  like: [post: XPost]
+  repost: [post: XPost]
+  bookmark: [post: XPost]
   reply: [id: string]
   open: [id: string]
 }>()
@@ -29,6 +30,11 @@ const likeLabel = computed(() => compactCount(display.value?.metrics.like ?? 0))
 const repostLabel = computed(() => compactCount(display.value?.metrics.repost ?? 0))
 const replyLabel = computed(() => compactCount(display.value?.metrics.reply ?? 0))
 const viewLabel = computed(() => compactCount(display.value?.metrics.view ?? 0))
+
+async function copyPostLink(): Promise<void> {
+  if (!display.value) return
+  await copyText(`https://x.com/${display.value.author.handle}/status/${display.value.id}`)
+}
 </script>
 
 <template>
@@ -103,7 +109,7 @@ const viewLabel = computed(() => compactCount(display.value?.metrics.view ?? 0))
               type="button"
               :class="{ 'is-reposted': display.isReposted }"
               aria-label="转推"
-              @click="emit('repost', post!.id)"
+              @click="emit('repost', post!)"
             >
               <AppIcon name="repost" :size="18" />
             </button>
@@ -111,7 +117,7 @@ const viewLabel = computed(() => compactCount(display.value?.metrics.view ?? 0))
               type="button"
               :class="{ 'is-liked': display.isLiked }"
               aria-label="喜欢"
-              @click="emit('like', post!.id)"
+              @click="emit('like', post!)"
             >
               <AppIcon name="heart" :size="18" :filled="display.isLiked" />
             </button>
@@ -119,11 +125,11 @@ const viewLabel = computed(() => compactCount(display.value?.metrics.view ?? 0))
               type="button"
               :class="{ 'is-bookmarked': display.isBookmarked }"
               aria-label="书签"
-              @click="emit('bookmark', post!.id)"
+              @click="emit('bookmark', post!)"
             >
               <AppIcon name="bookmark" :size="17" :filled="display.isBookmarked" />
             </button>
-            <button type="button" aria-label="分享">
+            <button type="button" aria-label="复制帖子链接" @click="copyPostLink">
               <AppIcon name="share" :size="17" />
             </button>
           </div>

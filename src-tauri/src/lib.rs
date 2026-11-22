@@ -66,6 +66,7 @@ pub fn run() {
             commands::x_favorite,
             commands::x_retweet,
             commands::x_bookmark,
+            commands::x_upload_photo,
             commands::x_create_tweet,
             commands::x_user_timeline,
             commands::x_bookmarks,

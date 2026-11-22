@@ -110,7 +110,7 @@ const stats = computed(() => {
         </template>
 
         <div class="ck-me__footer">
-          <span>twitter-miuix 0.1.0</span>
+          <span>twitter-miuix 0.1.1</span>
           <span>Rust + Tauri 2 + Vue 3 + miuix-vue</span>
         </div>
       </div>

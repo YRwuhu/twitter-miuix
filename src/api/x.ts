@@ -125,9 +125,23 @@ export async function bookmark(tweetId: string, on: boolean): Promise<void> {
 }
 
 /** 发布帖子或回复。 */
-export async function createTweet(text: string, replyTo?: string | null): Promise<unknown> {
+export async function createTweet(text: string, replyTo?: string | null, mediaIds: string[] = []): Promise<unknown> {
   if (!isTauri()) throw offlineError('发帖')
-  return invoke('x_create_tweet', { text, replyTo: replyTo ?? null })
+  return invoke('x_create_tweet', { text, replyTo: replyTo ?? null, mediaIds })
+}
+
+export async function uploadPhoto(file: File): Promise<string> {
+  if (!isTauri()) throw offlineError('图片上传')
+  const bytes = new Uint8Array(await file.arrayBuffer())
+  let binary = ''
+  const chunkSize = 0x8000
+  for (let offset = 0; offset < bytes.length; offset += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(offset, offset + chunkSize))
+  }
+  return invoke<string>('x_upload_photo', {
+    mediaBase64: btoa(binary),
+    mediaType: file.type,
+  })
 }
 
 /** 用户主页时间线。 */

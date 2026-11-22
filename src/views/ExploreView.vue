@@ -13,9 +13,9 @@ const props = defineProps<{ loggedIn: boolean }>()
 const emit = defineEmits<{
   open: [id: string]
   openUser: [user: XUser]
-  like: [id: string]
-  repost: [id: string]
-  bookmark: [id: string]
+  like: [post: XPost]
+  repost: [post: XPost]
+  bookmark: [post: XPost]
   reply: [id: string]
   login: []
 }>()

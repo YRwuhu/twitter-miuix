@@ -7,6 +7,7 @@
 //!   所以 404 不等于「queryId 失效」，必须先排除登录态问题。
 //! - `X-Client-Transaction-Id` 在登录态下不是必需的（已实测 200）。
 //! - 主机用 `api.x.com`（`api.twitter.com` 行为一致）。
+use base64::Engine;
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 
@@ -94,7 +95,11 @@ impl XClient {
         }
     }
 
-    fn base_headers(&self, request: reqwest::RequestBuilder, auth: &Auth) -> reqwest::RequestBuilder {
+    fn base_headers(
+        &self,
+        request: reqwest::RequestBuilder,
+        auth: &Auth,
+    ) -> reqwest::RequestBuilder {
         let request = request
             .header("Authorization", format!("Bearer {BEARER}"))
             .header("Accept", "*/*")
@@ -244,6 +249,167 @@ impl XClient {
             }
         }
         Ok(parsed)
+    }
+
+    /// Upload a photo through X's chunked media endpoint.
+    pub async fn upload_photo(
+        &self,
+        auth: &Auth,
+        bytes: &[u8],
+        media_type: &str,
+    ) -> Result<String, XError> {
+        const CHUNK_SIZE: usize = 1024 * 1024;
+        let url = "https://upload.twitter.com/1.1/media/upload.json";
+        let init_form = [
+            ("command", "INIT".to_string()),
+            ("total_bytes", bytes.len().to_string()),
+            ("media_type", media_type.to_string()),
+            ("media_category", "tweet_image".to_string()),
+        ];
+        let init_request = self.base_headers(self.http.post(url), auth);
+        let init_response = init_request
+            .form(&init_form)
+            .send()
+            .await
+            .map_err(|e| XError::new(0, e.to_string(), "network"))?;
+        let init_status = init_response.status().as_u16();
+        let init_text = init_response
+            .text()
+            .await
+            .map_err(|e| XError::new(init_status, e.to_string(), "network"))?;
+        let init_json: Value = serde_json::from_str(&init_text).map_err(|e| {
+            XError::new(
+                init_status,
+                format!("{e}: {}", truncate(&init_text)),
+                "parse",
+            )
+        })?;
+        if init_status != 200 {
+            return Err(describe_error(init_status, &init_json));
+        }
+        let media_id = init_json
+            .get("media_id_string")
+            .and_then(Value::as_str)
+            .map(str::to_owned)
+            .or_else(|| {
+                init_json
+                    .get("media_id")
+                    .and_then(Value::as_u64)
+                    .map(|id| id.to_string())
+            })
+            .ok_or_else(|| XError::new(init_status, "上传初始化响应缺少 media ID", "parse"))?;
+
+        for (segment_index, chunk) in bytes.chunks(CHUNK_SIZE).enumerate() {
+            let media_data = base64::engine::general_purpose::STANDARD.encode(chunk);
+            let form = [
+                ("command", "APPEND".to_string()),
+                ("media_id", media_id.clone()),
+                ("segment_index", segment_index.to_string()),
+                ("media_data", media_data),
+            ];
+            let multipart = reqwest::multipart::Form::new()
+                .text("command", form[0].1.clone())
+                .text("media_id", form[1].1.clone())
+                .text("segment_index", form[2].1.clone())
+                .part(
+                    "media_data",
+                    reqwest::multipart::Part::text(form[3].1.clone()),
+                );
+            let request = self.base_headers(self.http.post(url), auth);
+            let response = request
+                .multipart(multipart)
+                .send()
+                .await
+                .map_err(|e| XError::new(0, e.to_string(), "network"))?;
+            let status = response.status().as_u16();
+            if !response.status().is_success() {
+                let text = response.text().await.unwrap_or_default();
+                let body = serde_json::from_str(&text).unwrap_or(Value::Null);
+                return Err(describe_error(status, &body));
+            }
+        }
+
+        let finalize_form = [
+            ("command", "FINALIZE".to_string()),
+            ("media_id", media_id.clone()),
+        ];
+        let request = self.base_headers(self.http.post(url), auth);
+        let response = request
+            .form(&finalize_form)
+            .send()
+            .await
+            .map_err(|e| XError::new(0, e.to_string(), "network"))?;
+        let status = response.status().as_u16();
+        let text = response
+            .text()
+            .await
+            .map_err(|e| XError::new(status, e.to_string(), "network"))?;
+        let finalized: Value = serde_json::from_str(&text)
+            .map_err(|e| XError::new(status, format!("{e}: {}", truncate(&text)), "parse"))?;
+        if status != 200 {
+            return Err(describe_error(status, &finalized));
+        }
+
+        let mut processing = finalized.get("processing_info").cloned();
+        for _ in 0..8 {
+            let Some(info) = processing.as_ref() else {
+                break;
+            };
+            match info.get("state").and_then(Value::as_str) {
+                Some("succeeded") | None => break,
+                Some("failed") => {
+                    let message = info
+                        .pointer("/error/message")
+                        .and_then(Value::as_str)
+                        .unwrap_or("图片处理失败");
+                    return Err(XError::new(status, message, "server"));
+                }
+                Some("pending") | Some("in_progress") => {
+                    let delay = info
+                        .get("check_after_secs")
+                        .and_then(Value::as_u64)
+                        .unwrap_or(1)
+                        .clamp(1, 5);
+                    tokio::time::sleep(std::time::Duration::from_secs(delay)).await;
+                    let request = self
+                        .base_headers(self.http.get(url), auth)
+                        .query(&[("command", "STATUS"), ("media_id", media_id.as_str())]);
+                    let response = request
+                        .send()
+                        .await
+                        .map_err(|e| XError::new(0, e.to_string(), "network"))?;
+                    let poll_status = response.status().as_u16();
+                    let poll_text = response
+                        .text()
+                        .await
+                        .map_err(|e| XError::new(poll_status, e.to_string(), "network"))?;
+                    let poll_json: Value = serde_json::from_str(&poll_text).map_err(|e| {
+                        XError::new(
+                            poll_status,
+                            format!("{e}: {}", truncate(&poll_text)),
+                            "parse",
+                        )
+                    })?;
+                    if poll_status != 200 {
+                        return Err(describe_error(poll_status, &poll_json));
+                    }
+                    processing = poll_json.get("processing_info").cloned();
+                }
+                Some(state) => {
+                    return Err(XError::new(
+                        status,
+                        format!("未知的媒体处理状态：{state}"),
+                        "parse",
+                    ));
+                }
+            }
+        }
+        if let Some(info) = processing.as_ref() {
+            if info.get("state").and_then(Value::as_str) != Some("succeeded") {
+                return Err(XError::new(status, "图片处理超时，请重试", "server"));
+            }
+        }
+        Ok(media_id)
     }
 
     /// 拉取时间线（POST；实测比 GET 更稳定且支持更长变量）。
@@ -516,7 +682,8 @@ mod tests {
         let (main, replies) = crate::models::parse_tweet_detail(&data);
         println!(
             "详情：主帖={:?}，回复 {} 条",
-            main.as_ref().map(|p| p.text.chars().take(20).collect::<String>()),
+            main.as_ref()
+                .map(|p| p.text.chars().take(20).collect::<String>()),
             replies.len()
         );
         assert!(main.is_some(), "详情主帖解析失败");
